@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "quatro",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Fourth version of my portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Philippe Kimura-Thollander <hi@philkt.me>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
