@@ -3,16 +3,31 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Canvas, useFrame } from "@react-three/fiber"
+import { Canvas, useFrame, useLoader} from "@react-three/fiber"
+import { FontLoader } from "three/src/loaders/FontLoader"
+//import * as THREE from "three"
+
+function Text(props) {
+  const mesh = React.useRef()
+  const font = useLoader(FontLoader, "./helvetiker_regular.json")
+  const config = React.useMemo(
+   () => ({ font, size: 40, height: 30, curveSegments: 32, bevelEnabled: true, bevelThickness: 6, bevelSize: 2.5, bevelOffset: 0, bevelSegments: 8 }),
+   [font]
+  )
+  return (
+    <mesh
+      {...props}
+      ref = {mesh}
+    >
+      <textGeometry args={["hello this is a test", config]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
+  )
+}
 
 function Box(props) {
-  // This reference will give us direct access to the THREE.Mesh object
   const mesh = React.useRef()
-  // Set up state for the hovered state
-  const [hovered, setHover] = React.useState(false)
-  // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => (mesh.current.rotation.x += 0.01))
-  // Return the view, these are regular Threejs elements expressed in JSX
   return (
     <mesh
       {...props}
@@ -30,10 +45,12 @@ const Home = ({ data, location }) =>  {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <Canvas className="canvas">
-        <ambientLight color={0xffffff} />
-        <Box position={[0, 0, 0]} />
-      </Canvas>
+      <React.Suspense fallback={null}>
+        <Canvas className="canvas">
+          <ambientLight color={0xffffff} />
+          <Text position={[0, 0, 0]} />
+        </Canvas>
+      </React.Suspense>
     </Layout>
   )
 }
