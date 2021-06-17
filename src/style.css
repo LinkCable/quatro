@@ -222,7 +222,6 @@ blockquote > ol {
 }
 
 main {
-  flex-grow: 1;
   height: 100%;
 }
 
@@ -357,6 +356,10 @@ canvas {
 }
 
 #___gatsby {
+  height: 100%;
+}
+
+#gatsby-focus-wrapper {
   height: 100%;
 }
 
