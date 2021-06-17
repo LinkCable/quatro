@@ -5,6 +5,7 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
+  console.log (location);
 
   if (isRootPath) {
     header = (
@@ -26,7 +27,7 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className={"global-wrapper " + title} data-is-root-path={isRootPath}>
+    <div className={isRootPath ? "global-wrapper home" : "global-wrapper " + location.pathname.replace('/','')} data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
