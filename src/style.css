@@ -81,10 +81,15 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
 }
 
 footer {
-  padding: var(--spacing-6) var(--spacing-0);
+  padding: var(--spacing-0);
 }
 
 hr {
@@ -216,6 +221,11 @@ blockquote > ol {
   list-style-position: inside;
 }
 
+main {
+  flex-grow: 1;
+  height: 100%;
+}
+
 table {
   width: 100%;
   margin-bottom: var(--spacing-8);
@@ -244,6 +254,10 @@ a:focus {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -252,6 +266,17 @@ a:focus {
 
 .global-header {
   margin-bottom: var(--spacing-12);
+  position: absolute;
+  display: flex;
+  left: var(--spacing-5);
+  right: var(--spacing-5);
+}
+
+.global-header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .main-heading {
@@ -315,8 +340,24 @@ a:focus {
   margin: var(--spacing-0);
 }
 
+.home {
+  height: 100vh;
+}
+
+canvas {
+  flex-grow: 1;
+}
+
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.gatsby-wrapper {
+
+}
+
+#___gatsby {
+  height: 100%;
 }
 
 /* Media queries */
