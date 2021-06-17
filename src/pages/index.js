@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Canvas, useFrame } from "@react-three/fiber"
@@ -19,11 +18,9 @@ function Box(props) {
       {...props}
       ref={mesh}
       scale={3}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
     >
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color={hovered ? 'blue' : 'orange'} />
+        <boxGeometry args={[1, .5, 1]} />
+        <meshStandardMaterial color="orange" />
     </mesh>
   )
 }
@@ -34,6 +31,7 @@ const Home = ({ data, location }) =>  {
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
       <Canvas className="canvas">
+        <ambientLight color={0xffffff} />
         <Box position={[0, 0, 0]} />
       </Canvas>
     </Layout>
