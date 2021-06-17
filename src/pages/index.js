@@ -10,6 +10,7 @@ import { FontLoader } from "three/src/loaders/FontLoader"
 function Text(props) {
   const mesh = React.useRef()
   const font = useLoader(FontLoader, "./helvetiker_regular.json")
+
   const config = React.useMemo(
    () => ({ font, size: 40, height: 30, curveSegments: 32, bevelEnabled: true, bevelThickness: 6, bevelSize: 2.5, bevelOffset: 0, bevelSegments: 8 }),
    [font]
@@ -19,8 +20,8 @@ function Text(props) {
       {...props}
       ref = {mesh}
     >
-      <textGeometry args={["hello this is a test", config]} />
-      <meshStandardMaterial color="orange" />
+      <textGeometry attach="geometry" args={["hello this is a test", config]} />
+      <meshStandardMaterial attach="material" color="orange" />
     </mesh>
   )
 }
