@@ -1,40 +1,26 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import { Canvas, useFrame, useLoader} from "@react-three/fiber"
-import { FontLoader } from "three/src/loaders/FontLoader"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import useHorizontal from '@oberon-amsterdam/horizontal/hook';
+import { Canvas, useFrame, extend, useThree, useLoader} from "@react-three/fiber"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+
+//import useHorizontal from '@oberon-amsterdam/horizontal/hook'
+import HorizontalScroll from '@oberon-amsterdam/horizontal'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-//import * as THREE from "three"
+extend({ OrbitControls })
 
-/*function Text(props) {
-  const mesh = React.useRef()
-  const font = useLoader(FontLoader, "./helvetiker_regular.json")
-
-  const config = React.useMemo(
-   () => ({ font, size: 40, height: 30, curveSegments: 32, bevelEnabled: true, bevelThickness: 6, bevelSize: 2.5, bevelOffset: 0, bevelSegments: 8 }),
-   [font]
-  )
-  return (
-    <mesh
-      {...props}
-      ref = {mesh}
-    >
-      <textGeometry attach="geometry" args={["hello this is a test", config]} />
-      <meshStandardMaterial attach="material" color="orange" />
-    </mesh>
-  )
-}*/
-
-function Dolly(props) {
-  useFrame(({ clock, camera }) => {
-    camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30
-  })
-  return null
+function CameraControls(props) {
+  const {
+    camera,
+    gl: { domElement },
+   } = useThree()
+   const controls = React.useRef();
+   useFrame((state) => controls.current.update());
+   return (<orbitControls ref={controls} args={[camera, domElement]} />)
 }
 
 function Box(props) {
@@ -52,17 +38,24 @@ function Box(props) {
   )
 }
 
+function containerScrolled(props) {
+  console.log(props.target.scrollLeft);
+}
+
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
-  const [container, setContainer] = React.useState();
+  //const [container, setContainer] = React.useState()
+  const container = React.useRef()
 
-  useHorizontal({ container: container });
+  React.useEffect(() => {
+    new HorizontalScroll({ container:  document.querySelector('.container') });
+  })
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <div className="container" ref={ref => {setContainer(ref);}}>
+      <div className="container" ref={container} onScroll={containerScrolled}>
         <h1>
           This is a test of the pacer system.
         </h1>
@@ -83,10 +76,11 @@ const Home = ({ data, location }) =>  {
         </h1>
       </div>
       <React.Suspense fallback={null}>
-        <Canvas className="canvas" camera={{ fov: 75, position: [0, 0, 70] }}>
+        <Canvas className="canvas">
           <ambientLight color={0xffffff} />
           <Box position={[0, 0, 0]} />
-          <Dolly />
+          <Box position={[50, 0, 0]} />
+          <CameraControls />
         </Canvas>
       </React.Suspense>
     </Layout>

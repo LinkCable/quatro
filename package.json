@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@oberon-amsterdam/horizontal": "^1.0.5",
     "@react-three/fiber": "^7.0.1",
     "gatsby": "^3.6.2",
@@ -33,9 +34,11 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "scroll-data-hook": "^1.0.4",
     "three": "^0.129.0",
     "typeface-merriweather": "1.1.13",
-    "typeface-montserrat": "1.1.13"
+    "typeface-montserrat": "1.1.13",
+    "use-scroll-position": "^0.0.4"
   },
   "devDependencies": {
     "prettier": "2.3.1"
