@@ -57,9 +57,10 @@ const Home = ({ data, location }) =>  {
   React.useEffect(() => {
     new HorizontalScroll({ container:  document.querySelector('.container') });
     container.current.addEventListener('scroll', listenScrollEvent);
-
-    return () => container.current.removeEventListener('scroll', listenScrollEvent)
-  })
+    return () => {
+      container.current.removeEventListener('scroll', listenScrollEvent)
+    }
+  }, [])
 
   //console.log(scrollDistance)
 
