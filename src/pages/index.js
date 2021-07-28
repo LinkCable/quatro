@@ -6,7 +6,6 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 //import useHorizontal from '@oberon-amsterdam/horizontal/hook'
 import HorizontalScroll from '@oberon-amsterdam/horizontal'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -26,36 +25,48 @@ function CameraControls(props) {
 function Box(props) {
   const mesh = React.useRef()
   useFrame((state, delta) => (mesh.current.rotation.x += 0.01))
+  console.log(props)
+
   return (
     <mesh
       {...props}
       ref={mesh}
       scale={3}
     >
-        <boxGeometry args={[1, .5, 1]} />
-        <meshStandardMaterial color="orange" />
+        <boxGeometry args={[2 ,.5 , 1]} />
+        <meshStandardMaterial color={props.color}/>
     </mesh>
   )
-}
-
-function containerScrolled(props) {
-  console.log(props.target.scrollLeft);
 }
 
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
-  //const [container, setContainer] = React.useState()
   const container = React.useRef()
+  const [model, setModel] = React.useState("orange")
+
+  const listenScrollEvent = (event) => {
+    console.log(event.target.scrollLeft)
+    if (event.target.scrollLeft < 2000) {
+      setModel("orange")
+    } else {
+      setModel("blue")
+    }
+  }
 
   React.useEffect(() => {
     new HorizontalScroll({ container:  document.querySelector('.container') });
+    container.current.addEventListener('scroll', listenScrollEvent);
+
+    return () => container.current.removeEventListener('scroll', listenScrollEvent)
   })
+
+  //console.log(scrollDistance)
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <div className="container" ref={container} onScroll={containerScrolled}>
+      <div className="container" ref={container}>
         <h1>
           This is a test of the pacer system.
         </h1>
@@ -78,8 +89,7 @@ const Home = ({ data, location }) =>  {
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
           <ambientLight color={0xffffff} />
-          <Box position={[0, 0, 0]} />
-          <Box position={[50, 0, 0]} />
+            <Box position={[0, 0, 0]} color={model} />
           <CameraControls />
         </Canvas>
       </React.Suspense>
