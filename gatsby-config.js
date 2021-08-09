@@ -3,7 +3,7 @@ module.exports = {
     title: `philkt`,
     author: {
       name: `Phil Kimura-Thollander`,
-      summary: `designer for oculus`,
+      summary: `designer`,
     },
     description: `A personal portfolio.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
@@ -112,8 +112,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Phil KT Personal Blog`,
+        short_name: `Philkt`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

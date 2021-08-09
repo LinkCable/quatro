@@ -72,6 +72,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.(gltf)$/,
+          use: [
+            `gltf-webpack-loader`,
+          ],
+        },
+      ],
+    },
+  })
+}
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 

@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import { Canvas, useFrame, extend, useThree, useLoader} from "@react-three/fiber"
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 //import useHorizontal from '@oberon-amsterdam/horizontal/hook'
@@ -10,6 +11,9 @@ import HorizontalScroll from '@oberon-amsterdam/horizontal'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import oculus from '../models/oculus.gltf'
+
+
 extend({ OrbitControls })
 
 function CameraControls(props) {
@@ -17,16 +21,25 @@ function CameraControls(props) {
     camera,
     gl: { domElement },
    } = useThree()
-   const controls = React.useRef();
-   useFrame((state) => controls.current.update());
+   const controls = React.useRef()
+   useFrame((state) => controls.current.update())
    return (<orbitControls ref={controls} args={[camera, domElement]} />)
 }
 
 function Box(props) {
-  const mesh = React.useRef()
-  useFrame((state, delta) => (mesh.current.rotation.x += 0.01))
   console.log(props)
+  console.log(oculus)
 
+  const gltf = useLoader(GLTFLoader, oculus)
+  const model = React.useRef()
+  useFrame((state, delta) => (model.current.rotation.y -= 0.01))
+
+  return <primitive
+    ref={model}
+    object={gltf.scene}
+    scale={2}
+  />
+  /*
   return (
     <mesh
       {...props}
@@ -36,7 +49,7 @@ function Box(props) {
         <boxGeometry args={[2 ,.5 , 1]} />
         <meshStandardMaterial color={props.color}/>
     </mesh>
-  )
+  )*/
 }
 
 const Home = ({ data, location }) =>  {
