@@ -102,8 +102,16 @@ const Home = ({ data, location }) =>  {
       </div>
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
-          <ambientLight color={0xffffff} />
-            <Box position={[0, 0, 0]} color={model} />
+          <rectAreaLight
+            width={3}
+            height={3}
+            color={0xffc9f9}
+            intensity={5.6}
+            position={[-1, 1, 2]}
+            lookAt={[0, 0, 0]}
+            penumbra={1}
+          />
+          <Box position={[0, 0, 0]} color={model} />
           <CameraControls />
         </Canvas>
       </React.Suspense>
