@@ -12,7 +12,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import oculus from '../models/oculus.gltf'
-
+import duck from '../models/duck/duck.gltf'
 
 extend({ OrbitControls })
 
@@ -27,15 +27,21 @@ function CameraControls(props) {
 }
 
 function Box(props) {
-  console.log(props)
-  console.log(oculus)
 
-  const gltf = useLoader(GLTFLoader, oculus)
-  const model = React.useRef()
-  useFrame((state, delta) => (model.current.rotation.y -= 0.01))
+  console.log(props.model)
+  const oculus_gltf = useLoader(GLTFLoader, oculus)
+  const duck_gltf = useLoader(GLTFLoader, duck)
+
+  let gltf
+  props.model === "oculus" ? gltf = oculus_gltf : gltf = duck_gltf
+
+  console.log(gltf)
+
+  const bgModel = React.useRef()
+  useFrame((state, delta) => (bgModel.current.rotation.y -= 0.01))
 
   return <primitive
-    ref={model}
+    ref={bgModel}
     object={gltf.scene}
     scale={2}
   />
@@ -56,14 +62,13 @@ const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   const container = React.useRef()
-  const [model, setModel] = React.useState("orange")
+  const [model, setModel] = React.useState("oculus")
 
   const listenScrollEvent = (event) => {
-    console.log(event.target.scrollLeft)
     if (event.target.scrollLeft < 2000) {
-      setModel("orange")
+      setModel("oculus")
     } else {
-      setModel("blue")
+      setModel("heart")
     }
   }
 
@@ -111,7 +116,7 @@ const Home = ({ data, location }) =>  {
             lookAt={[0, 0, 0]}
             penumbra={1}
           />
-          <Box position={[0, 0, 0]} color={model} />
+          <Box position={[0, 0, 0]} model={model}/>
           <CameraControls />
         </Canvas>
       </React.Suspense>

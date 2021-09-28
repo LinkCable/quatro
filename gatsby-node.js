@@ -88,8 +88,17 @@ exports.onCreateWebpackConfig = ({
             `gltf-webpack-loader`,
           ],
         },
-      ],
-    },
+        {
+          test: /\.(bin)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {}
+            }
+          ]
+        }
+      ]
+    }
   })
 }
 
