@@ -18,6 +18,7 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+
       },
     },
     {
@@ -25,6 +26,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fonts`,
+        path: `${__dirname}/src/fonts/`,
       },
     },
     {

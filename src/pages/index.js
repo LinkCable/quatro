@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import { Canvas, useFrame, extend, useThree, useLoader} from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
