@@ -45,17 +45,6 @@ function Box(props) {
     object={gltf.scene}
     scale={2}
   />
-  /*
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={3}
-    >
-        <boxGeometry args={[2 ,.5 , 1]} />
-        <meshStandardMaterial color={props.color}/>
-    </mesh>
-  )*/
 }
 
 const Home = ({ data, location }) =>  {
@@ -72,12 +61,27 @@ const Home = ({ data, location }) =>  {
     }
   }
 
+
   React.useEffect(() => {
-    new HorizontalScroll({ container:  document.querySelector('.container') });
-    container.current.addEventListener('scroll', listenScrollEvent);
-    return () => {
-      container.current.removeEventListener('scroll', listenScrollEvent)
+    new HorizontalScroll({
+      container: document.querySelector('.container'),
+      showScrollbars: false
+    });
+
+    let observable = container.current;
+    console.log(observable);
+    if (observable) {
+      observable.addEventListener('scroll', listenScrollEvent);
+      return () => {
+        observable.removeEventListener('scroll', listenScrollEvent)
+      }
     }
+    else {
+      return () => null
+    }
+
+
+
   }, [])
 
   //console.log(scrollDistance)

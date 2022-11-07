@@ -6,7 +6,7 @@ module.exports = {
       summary: `designer`,
     },
     description: `A personal portfolio.`,
-    siteUrl: ``,
+    siteUrl: `https://www.gatsbyjs.com`,
     social: {
       twitter: `philkt_`,
     },
@@ -105,6 +105,7 @@ module.exports = {
                 }
               }
             `,
+            title: "Your Site's RSS Feed",
             output: "/rss.xml",
           },
         ],
