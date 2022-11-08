@@ -11,6 +11,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "@oberon-amsterdam/horizontal": "^1.0.5",
     "@react-three/fiber": "^8.9.1",
+    "@react-three/drei": "^9.40.0",
     "gatsby": "^4.24.7",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-gatsby-cloud": "^4.24.1",

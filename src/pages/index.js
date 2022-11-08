@@ -1,11 +1,11 @@
 import * as React from "react"
+import * as THREE from "three";
 import { graphql } from "gatsby"
 
-import { Canvas, useFrame, extend, useThree, useLoader} from "@react-three/fiber"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Canvas, useFrame, extend, useThree } from "@react-three/fiber"
+import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
-//import useHorizontal from '@oberon-amsterdam/horizontal/hook'
 import HorizontalScroll from '@oberon-amsterdam/horizontal'
 
 import Layout from "../components/layout"
@@ -23,26 +23,43 @@ function CameraControls(props) {
    } = useThree()
    const controls = React.useRef()
    useFrame((state) => controls.current.update())
+   camera.position.set( 0, 0, 10 );
    return (<orbitControls ref={controls} args={[camera, domElement]} />)
 }
 
 function Box(props) {
 
-  console.log(props.model)
-  const oculus_gltf = useLoader(GLTFLoader, oculus)
-  const duck_gltf = useLoader(GLTFLoader, duck)
+  const meta = useGLTF('../../3d/meta.glb')
+  const headset = useGLTF('../../3d/headset-res.glb')
+  const oculus_gltf = useGLTF(oculus)
+  const duck_gltf = useGLTF(duck)
 
-  let gltf
-  props.model === "oculus" ? gltf = oculus_gltf : gltf = duck_gltf
+  let model
+  props.model === "meta" ? model = meta : model = headset
 
-  console.log(gltf)
+
+
+  let mixer
+  if (model.animations.length) {
+    mixer = new THREE.AnimationMixer(model.scene);
+    model.animations.forEach(clip => {
+        const action = mixer.clipAction(clip)
+        action.play();
+    });
+  }
 
   const bgModel = React.useRef()
-  useFrame((state, delta) => (bgModel.current.rotation.y -= 0.01))
+  useFrame((state, delta) => {
+    if (model === headset) {
+      bgModel.current.rotation.y -= 0.01
+    }
+    mixer?.update(delta)
+  })
 
   return <primitive
     ref={bgModel}
-    object={gltf.scene}
+    object={model.scene}
+    material={model.materials}
     scale={2}
   />
 }
@@ -51,13 +68,13 @@ const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   const container = React.useRef()
-  const [model, setModel] = React.useState("oculus")
+  const [model, setModel] = React.useState("meta")
 
   const listenScrollEvent = (event) => {
     if (event.target.scrollLeft < 2000) {
-      setModel("oculus")
+      setModel("meta")
     } else {
-      setModel("heart")
+      setModel("duck")
     }
   }
 
@@ -84,7 +101,6 @@ const Home = ({ data, location }) =>  {
 
   }, [])
 
-  //console.log(scrollDistance)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -111,16 +127,17 @@ const Home = ({ data, location }) =>  {
       </div>
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
-          <rectAreaLight
-            width={3}
-            height={3}
+          <ambientLight />
+          {/* <rectAreaLight
+            width={1}
+            height={1}
             color={0xffc9f9}
-            intensity={5.6}
+            intensity={0.6}
             position={[-1, 1, 2]}
             lookAt={[0, 0, 0]}
             penumbra={1}
-          />
-          <Box position={[0, 0, 0]} model={model}/>
+          /> */}
+          <Box position={[0, 0, 0]} model={model} />
           <CameraControls />
         </Canvas>
       </React.Suspense>
