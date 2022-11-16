@@ -10,8 +10,8 @@
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "@oberon-amsterdam/horizontal": "^1.0.5",
-    "@react-three/fiber": "^8.9.1",
     "@react-three/drei": "^9.40.0",
+    "@react-three/fiber": "^8.9.1",
     "gatsby": "^4.24.7",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-gatsby-cloud": "^4.24.1",
@@ -36,6 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-horizontal-vertical": "^1.0.3",
     "scroll-data-hook": "^1.0.4",
     "three": "^0.146.0",
     "use-scroll-position": "^0.0.4"

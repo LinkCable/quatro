@@ -375,14 +375,22 @@ canvas {
   height: 100%;
 }
 
-.container h1 {
+.container div {
   flex-grow: 1;
   display: flex;
-  min-width: 60%;
-  align-items: center;
+  min-width: 80%;
+  flex-flow: column;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  padding: var(--spacing-12);
+}
+
+.container h1 {
   font-family: "Gulax";
+  margin-bottom: var(--spacing-2);
+  -webkit-text-stroke-width: .025rem;
+  -webkit-text-stroke-color: #f9f9f9;
 }
 
 .HorizontalScroll .HorizontalScrollTrack {

@@ -7,12 +7,14 @@ import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 import HorizontalScroll from '@oberon-amsterdam/horizontal'
+//import "react-horizontal-vertical/dist/index.umd.css";
+//import { Rhv } from 'react-horizontal-vertical';
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import oculus from '../models/oculus.gltf'
-import duck from '../models/duck/duck.gltf'
+//import oculus from '../models/oculus.gltf'
 
 extend({ OrbitControls })
 
@@ -23,7 +25,8 @@ function CameraControls(props) {
    } = useThree()
    const controls = React.useRef()
    useFrame((state) => controls.current.update())
-   camera.position.set( 0, 0, 10 );
+   camera.position.set( 0, 0, 0 );
+   camera.rotation.set( 0, 0, 0 )
    return (<orbitControls ref={controls} args={[camera, domElement]} />)
 }
 
@@ -31,13 +34,10 @@ function Box(props) {
 
   const meta = useGLTF('../../3d/meta.glb')
   const headset = useGLTF('../../3d/headset-res.glb')
-  const oculus_gltf = useGLTF(oculus)
-  const duck_gltf = useGLTF(duck)
+  headset.scene.scale.set(10,10, 10);
 
   let model
   props.model === "meta" ? model = meta : model = headset
-
-
 
   let mixer
   if (model.animations.length) {
@@ -51,7 +51,9 @@ function Box(props) {
   const bgModel = React.useRef()
   useFrame((state, delta) => {
     if (model === headset) {
-      bgModel.current.rotation.y -= 0.01
+      model.scene.scale.set(20,20,20)
+      model.scene.position.set(0, -1, 0)
+      bgModel.current.rotation.y -= 0.003
     }
     mixer?.update(delta)
   })
@@ -71,7 +73,7 @@ const Home = ({ data, location }) =>  {
   const [model, setModel] = React.useState("meta")
 
   const listenScrollEvent = (event) => {
-    if (event.target.scrollLeft < 2000) {
+    if (event.target.scrollLeft < 1300) {
       setModel("meta")
     } else {
       setModel("duck")
@@ -79,11 +81,13 @@ const Home = ({ data, location }) =>  {
   }
 
 
+
   React.useEffect(() => {
     new HorizontalScroll({
       container: document.querySelector('.container'),
       showScrollbars: false
     });
+
 
     let observable = container.current;
     console.log(observable);
@@ -99,6 +103,7 @@ const Home = ({ data, location }) =>  {
 
 
 
+
   }, [])
 
 
@@ -106,28 +111,44 @@ const Home = ({ data, location }) =>  {
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
       <div className="container" ref={container}>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
+        <div>
+          <h1>
+            I am a product designer.
+          </h1>
+          <p>
+            Passionate about emerging technologies and social dynamics.
+          </p>
+        </div>
+        <div>
+          <h1>
+            I currently work on VR Privacy at Meta.
+          </h1>
+          <p>
+            Passionate about emerging technologies and social dynamics.
+          </p>
+        </div>
+        <div>
+          <h1>
+            I most recently worked on features supporting the Meta Quest Pro launch.
+          </h1>
+          <p>
+            Including work on face and eye tracking, as well as the Meta account.
+          </p>
+        </div>
+        <div>
+          <h1>
+            This is a test of the pacer system.
+          </h1>
+        </div>
+        <div>
+          <h1>
+            This is a test of the pacer system.
+          </h1>
+        </div>
       </div>
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
-          <ambientLight />
+          <pointLight position={[0, 20, 20]} />
           {/* <rectAreaLight
             width={1}
             height={1}
