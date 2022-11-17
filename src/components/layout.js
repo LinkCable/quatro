@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import resume from "../pdfs/philkt-resume.pdf"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -9,12 +10,18 @@ const Layout = ({ location, title, children }) => {
   if (isRootPath) {
     header = (
       <div>
-        <h1 className="main-heading">
+        <h1 className="main-heading home-link">
           <Link to="/">{title}</Link>
         </h1>
-        <h2 className="main-heading">
-          <Link to="/blog">Blog</Link>
-        </h2>
+
+        <div>
+          <h2 className="main-heading resume-link">
+            <a href={resume}>Resume</a>
+          </h2>
+          <h2 className="main-heading blog-link">
+            <Link to="/blog">Blog</Link>
+          </h2>
+        </div>
       </div>
     )
   } else {
