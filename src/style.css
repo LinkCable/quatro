@@ -1,3 +1,5 @@
+@import 'react-horizontal-vertical/rhv.css';
+
 /* Font Faces */
 @font-face {
   font-family: "Gulax";
@@ -92,6 +94,7 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   min-height: 100vh;
+  overscroll-behavior-y: none;
 }
 
 html, body {
@@ -383,7 +386,7 @@ canvas {
   height: 100%;
 }
 
-.container div {
+.canvas .statement {
   flex-grow: 1;
   display: flex;
   min-width: 80%;
@@ -394,16 +397,13 @@ canvas {
   padding: var(--spacing-12);
 }
 
-.container h1 {
+.canvas h1 {
   font-family: "Gulax";
   margin-bottom: var(--spacing-2);
   -webkit-text-stroke-width: .025rem;
   -webkit-text-stroke-color: #f9f9f9;
 }
 
-.HorizontalScroll .HorizontalScrollTrack {
-  display: none;
-}
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);

@@ -2,42 +2,21 @@ import * as React from "react"
 import * as THREE from "three";
 import { graphql } from "gatsby"
 
-import { Canvas, useFrame, extend, useThree } from "@react-three/fiber"
-import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-
-import HorizontalScroll from '@oberon-amsterdam/horizontal'
-//import "react-horizontal-vertical/dist/index.umd.css";
-//import { Rhv } from 'react-horizontal-vertical';
-
+import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { ScrollControls, useScroll, useAnimations, Html } from "@react-three/drei"
+import { a } from "@react-spring/three";
+import Scroll from "../components/scroll";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-//import oculus from '../models/oculus.gltf'
 
-extend({ OrbitControls })
+function Model(props) {
 
-function CameraControls(props) {
-  const {
-    camera,
-    gl: { domElement },
-   } = useThree()
-   const controls = React.useRef()
-   useFrame((state) => controls.current.update())
-   camera.position.set( 0, 0, 0 );
-   camera.rotation.set( 0, 0, 0 )
-   return (<orbitControls ref={controls} args={[camera, domElement]} />)
-}
 
-function Box(props) {
-
-  const meta = useGLTF('../../3d/meta.glb')
-  const headset = useGLTF('../../3d/headset-res.glb')
-  headset.scene.scale.set(10,10, 10);
-
-  let model
-  props.model === "meta" ? model = meta : model = headset
+  console.log(props.modelFile)
+  const model = useLoader(GLTFLoader, props.modelFile)
 
   let mixer
   if (model.animations.length) {
@@ -48,70 +27,41 @@ function Box(props) {
     });
   }
 
-  const bgModel = React.useRef()
   useFrame((state, delta) => {
-    if (model === headset) {
-      model.scene.scale.set(20,20,20)
-      model.scene.position.set(0, -1, 0)
-      bgModel.current.rotation.y -= 0.003
-    }
     mixer?.update(delta)
   })
 
   return <primitive
-    ref={bgModel}
     object={model.scene}
     material={model.materials}
-    scale={2}
+    position={props.position}
+    scale={props.scale}
+  />
+}
+
+function Camera(props) {
+  const ref = React.useRef()
+  const [y] = Scroll([0, 200], { domTarget: window });
+  const set = useThree((state) => state.set);
+  React.useEffect(() => void set({ camera: ref.current }), []);
+  useFrame(() => ref.current.updateMatrixWorld());
+  return <a.perspectiveCamera
+    ref={ref}
+    {...props}
+    position-x={y.to((y) => (y / 500) * 25)}
   />
 }
 
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-
-  const container = React.useRef()
-  const [model, setModel] = React.useState("meta")
-
-  const listenScrollEvent = (event) => {
-    if (event.target.scrollLeft < 1300) {
-      setModel("meta")
-    } else {
-      setModel("duck")
-    }
-  }
-
-
-
-  React.useEffect(() => {
-    new HorizontalScroll({
-      container: document.querySelector('.container'),
-      showScrollbars: false
-    });
-
-
-    let observable = container.current;
-    console.log(observable);
-    if (observable) {
-      observable.addEventListener('scroll', listenScrollEvent);
-      return () => {
-        observable.removeEventListener('scroll', listenScrollEvent)
-      }
-    }
-    else {
-      return () => null
-    }
-
-
-
-
-  }, [])
-
+  const container = React.useRef();
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
       <div className="container" ref={container}>
-        <div>
+        {/*
+        <div className="statement">
           <h1>
             I am a product designer.
           </h1>
@@ -119,7 +69,7 @@ const Home = ({ data, location }) =>  {
             Passionate about emerging technologies and social dynamics.
           </p>
         </div>
-        <div>
+        <div className="statement">
           <h1>
             I currently work on VR Privacy at Meta.
           </h1>
@@ -127,7 +77,7 @@ const Home = ({ data, location }) =>  {
             Passionate about emerging technologies and social dynamics.
           </p>
         </div>
-        <div>
+        <div className="statement">
           <h1>
             I most recently worked on features supporting the Meta Quest Pro launch.
           </h1>
@@ -135,31 +85,47 @@ const Home = ({ data, location }) =>  {
             Including work on face and eye tracking, as well as the Meta account.
           </p>
         </div>
-        <div>
+        <div className="statement">
           <h1>
             This is a test of the pacer system.
           </h1>
         </div>
-        <div>
+        <div className="statement">
           <h1>
             This is a test of the pacer system.
           </h1>
         </div>
+        */}
       </div>
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
+          <Html>
+            <div className="statement">
+              <h1>
+                I am a product designer.
+              </h1>
+              <div>
+                Passionate about emerging technologies and social dynamics.
+              </div>
+            </div>
+          </Html>
+          <Camera position={[0, 0, 10]} />
+          <Model position={[0, 0, 0]} scale={1} modelFile = "/3d/meta.glb"/>
+          <Model position={[0, 0, 0]} scale={2} modelFile = "/3d/headset-res.glb" />
+          <directionalLight
+            castShadow
+            position={[10, 20, 15]}
+            shadow-camera-right={8}
+            shadow-camera-top={8}
+            shadow-camera-left={-8}
+            shadow-camera-bottom={-8}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            intensity={2}
+            shadow-bias={-0.0001}
+          />
+
           <pointLight position={[0, 20, 20]} />
-          {/* <rectAreaLight
-            width={1}
-            height={1}
-            color={0xffc9f9}
-            intensity={0.6}
-            position={[-1, 1, 2]}
-            lookAt={[0, 0, 0]}
-            penumbra={1}
-          /> */}
-          <Box position={[0, 0, 0]} model={model} />
-          <CameraControls />
         </Canvas>
       </React.Suspense>
     </Layout>
