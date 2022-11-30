@@ -6,7 +6,6 @@ import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { ScrollControls, useScroll, Scroll, useAnimations, Html, Merged } from "@react-three/drei"
 import { a } from "@react-spring/three";
-//import Scroll from "../components/scroll";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -32,13 +31,17 @@ function Model(props) {
   return <primitive
     object={model.scene}
     material={model.materials}
-    scale={props.scale}
+    position={props.position}
+    {...props}
   />
 }
 
 function Tidbit(props) {
   return (
-  <Html center={true} >
+  <Html
+    center={true}
+    position={props.position}
+    zIndexRange={[5, 1]}>
     <div className="statement">
       <h1>
         {props.header}
@@ -56,77 +59,66 @@ function Camera(props) {
   const ref = React.useRef()
   const set = useThree((state) => state.set);
   const scroll = useScroll()
-  React.useEffect(() => void set({ camera: ref.current }), []);
+  console.log(scroll)
+
+  //React.useEffect(() => void set({ camera: ref.current }), []);
+
   useFrame((state, delta) => {
+    ref.current.translateZ(scroll.offset * 20);
+    //ref.current.position.lerp(new THREE.Vector3(40, 0, 0), 0.05)
     ref.current.updateMatrixWorld();
   })
 
   return <perspectiveCamera
     ref={ref}
+    fov={90}
     {...props}
   />
 }
 
 
 function Page(props) {
-  const { width } = useThree((state) => state.viewport)
   const group = React.useRef()
-  const scroll = useScroll()
-  useFrame((state, delta) => {
-    group.current.position.x = scroll.offset * 4
-  })
 
-  console.log(props)
   return (
-    <group ref={group} position={props.position} {...props}>
-      <Model modelFile={props.modelFile} />
-      <Tidbit header={props.header} sentence={props.sentence} />
+    <group ref={group}  {...props}>
+      <Model modelFile={props.modelFile} position={props.modelPosition} scale={props.scale} />
+      <Tidbit header={props.header} sentence={props.sentence} position={props.textPosition}/>
     </group>
   )
 }
 
 function Scene(props) {
   const { width } = useThree((state) => state.viewport)
+
+
   return (
     <>
       <Page
-        position = {[ 0, 0, 0 ]}
-        modelFile="/3d/meta.glb"
+        modelPosition = {[0, -1, 0 ]}
+        textPosition = {[0, 0, 0 ]}
+        scale = {.75}
+        modelFile="/3d/gundam.glb"
         header="I am a product designer."
         sentence="Passionate about emerging technologies and social dynamics."
       />
       <Page
-        position = {[ 100, 0, 0 ]}
-        modelFile="/3d/headset-res.glb"
-        header="I am a product designer."
-        sentence="Passionate about emerging technologies and social dynamics."
+        modelPosition = {[8, 0, 0 ]}
+        textPosition = {[17, 0, 0 ]}
+        scale = {1}
+        modelFile="/3d/meta.glb"
+        header="I currently do my thing at Meta."
+        sentence="Been designing here 4 years."
+      />
+      <Page
+        modelPosition = {[20, 0, 0 ]}
+        textPosition = {[40, 0, 0 ]}
+        scale = {1}
+        modelFile="/3d/headset.glb"
+        header="I've been in the VR Privacy space for the past year or so."
+        sentence="While I've been here I've shipped new privacy settings and features for the Quest Pro."
       />
     </>
-    /*
-    <Html position={props.position}>
-      <Html center={true}>
-        <div className="statement">
-          <h1>
-            I am a product designer.
-          </h1>
-          <p>
-            Passionate about emerging technologies and social dynamics.
-          </p>
-        </div>
-      </Html>
-      <Model position={[20, 0, 0]} scale={1} modelFile = "/3d/meta.glb"/>
-      <Html center={true} position={[20, 0, 0]}>
-        <div className="statement">
-          <h1>
-            I currently work at Meta.
-          </h1>
-          <p>
-            I've been at the company for 4 years.
-          </p>
-        </div>
-      </Html>
-      <Model position={[40, 0, 0]} scale={20} modelFile = "/3d/headset-res.glb" />
-    </Html>*/
   )
 
 }
@@ -146,7 +138,9 @@ const Home = ({ data, location }) =>  {
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
             horizontal // Can also scroll horizontally (default: false)
+            className="scrollControls"
           >
+            <Camera position={[5, 0, 0]}/>
             <Scroll>
                <Scene />
             </Scroll>

@@ -372,8 +372,10 @@ a:focus {
 
 canvas {
   flex-grow: 1;
+  position: absolute !important;
+  top: 0;
+  z-index: -1;
 }
-
 
 .container {
   display: flex;
@@ -388,7 +390,7 @@ canvas {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: center;
   padding: var(--spacing-12);
 }
 
@@ -400,6 +402,9 @@ canvas {
   -webkit-text-stroke-color: #f9f9f9;
 }
 
+.canvas > div > canvas + div {
+  overflow: hidden !important;
+}
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
