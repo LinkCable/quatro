@@ -4,9 +4,9 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, useScroll, useAnimations, Html } from "@react-three/drei"
+import { ScrollControls, useScroll, Scroll, useAnimations, Html, Merged } from "@react-three/drei"
 import { a } from "@react-spring/three";
-import Scroll from "../components/scroll";
+//import Scroll from "../components/scroll";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -14,8 +14,6 @@ import Seo from "../components/seo"
 
 function Model(props) {
 
-
-  console.log(props.modelFile)
   const model = useLoader(GLTFLoader, props.modelFile)
 
   let mixer
@@ -34,33 +32,79 @@ function Model(props) {
   return <primitive
     object={model.scene}
     material={model.materials}
-    position={props.position}
     scale={props.scale}
   />
 }
 
+function Tidbit(props) {
+  return (
+  <Html center={true} >
+    <div className="statement">
+      <h1>
+        {props.header}
+      </h1>
+      <p>
+        {props.sentence}
+      </p>
+    </div>
+  </Html>
+  )
+}
+
+
 function Camera(props) {
   const ref = React.useRef()
-  const [y] = Scroll([0, 200], { domTarget: window });
   const set = useThree((state) => state.set);
+  const scroll = useScroll()
   React.useEffect(() => void set({ camera: ref.current }), []);
-  useFrame(() => ref.current.updateMatrixWorld());
-  return <a.perspectiveCamera
+  useFrame((state, delta) => {
+    ref.current.updateMatrixWorld();
+  })
+
+  return <perspectiveCamera
     ref={ref}
     {...props}
-    position-x={y.to((y) => (y / 500) * 25)}
   />
 }
 
-const Home = ({ data, location }) =>  {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const container = React.useRef();
 
+function Page(props) {
+  const { width } = useThree((state) => state.viewport)
+  const group = React.useRef()
+  const scroll = useScroll()
+  useFrame((state, delta) => {
+    group.current.position.x = scroll.offset * 4
+  })
+
+  console.log(props)
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="Home" />
-      <div className="container" ref={container}>
-        {/*
+    <group ref={group} position={props.position} {...props}>
+      <Model modelFile={props.modelFile} />
+      <Tidbit header={props.header} sentence={props.sentence} />
+    </group>
+  )
+}
+
+function Scene(props) {
+  const { width } = useThree((state) => state.viewport)
+  return (
+    <>
+      <Page
+        position = {[ 0, 0, 0 ]}
+        modelFile="/3d/meta.glb"
+        header="I am a product designer."
+        sentence="Passionate about emerging technologies and social dynamics."
+      />
+      <Page
+        position = {[ 100, 0, 0 ]}
+        modelFile="/3d/headset-res.glb"
+        header="I am a product designer."
+        sentence="Passionate about emerging technologies and social dynamics."
+      />
+    </>
+    /*
+    <Html position={props.position}>
+      <Html center={true}>
         <div className="statement">
           <h1>
             I am a product designer.
@@ -69,49 +113,44 @@ const Home = ({ data, location }) =>  {
             Passionate about emerging technologies and social dynamics.
           </p>
         </div>
+      </Html>
+      <Model position={[20, 0, 0]} scale={1} modelFile = "/3d/meta.glb"/>
+      <Html center={true} position={[20, 0, 0]}>
         <div className="statement">
           <h1>
-            I currently work on VR Privacy at Meta.
+            I currently work at Meta.
           </h1>
           <p>
-            Passionate about emerging technologies and social dynamics.
+            I've been at the company for 4 years.
           </p>
         </div>
-        <div className="statement">
-          <h1>
-            I most recently worked on features supporting the Meta Quest Pro launch.
-          </h1>
-          <p>
-            Including work on face and eye tracking, as well as the Meta account.
-          </p>
-        </div>
-        <div className="statement">
-          <h1>
-            This is a test of the pacer system.
-          </h1>
-        </div>
-        <div className="statement">
-          <h1>
-            This is a test of the pacer system.
-          </h1>
-        </div>
-        */}
-      </div>
+      </Html>
+      <Model position={[40, 0, 0]} scale={20} modelFile = "/3d/headset-res.glb" />
+    </Html>*/
+  )
+
+}
+
+
+const Home = ({ data, location }) =>  {
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const container = React.useRef();
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo title="Home" />
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
-          <Html>
-            <div className="statement">
-              <h1>
-                I am a product designer.
-              </h1>
-              <div>
-                Passionate about emerging technologies and social dynamics.
-              </div>
-            </div>
-          </Html>
-          <Camera position={[0, 0, 10]} />
-          <Model position={[0, 0, 0]} scale={1} modelFile = "/3d/meta.glb"/>
-          <Model position={[0, 0, 0]} scale={2} modelFile = "/3d/headset-res.glb" />
+          <ScrollControls
+            pages={3} // Each page takes 100% of the height of the canvas
+            distance={1} // A factor that increases scroll bar travel (default: 1)
+            damping={4} // Friction, higher is faster (default: 4)
+            horizontal // Can also scroll horizontally (default: false)
+          >
+            <Scroll>
+               <Scene />
+            </Scroll>
+          </ScrollControls>
           <directionalLight
             castShadow
             position={[10, 20, 15]}
@@ -124,7 +163,6 @@ const Home = ({ data, location }) =>  {
             intensity={2}
             shadow-bias={-0.0001}
           />
-
           <pointLight position={[0, 20, 20]} />
         </Canvas>
       </React.Suspense>

@@ -374,11 +374,6 @@ canvas {
   flex-grow: 1;
 }
 
-.canvas {
-  position: absolute !important;
-  top: 0;
-  z-index: -1;
-}
 
 .container {
   display: flex;
@@ -389,15 +384,16 @@ canvas {
 .canvas .statement {
   flex-grow: 1;
   display: flex;
-  min-width: 80%;
+  min-width: 40em;
   flex-flow: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   text-align: left;
   padding: var(--spacing-12);
 }
 
 .canvas h1 {
+  margin: 0;
   font-family: "Gulax";
   margin-bottom: var(--spacing-2);
   -webkit-text-stroke-width: .025rem;

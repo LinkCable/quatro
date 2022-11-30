@@ -14,6 +14,6 @@ export default function Scroll(bounds, props) {
     [bounds, y, set]
   );
   const bind = useGesture({ onWheel: fn, onDrag: fn }, props);
-  useEffect(() => props && props.domTarget && bind(), [props, bind]);
+  useEffect(() => props && props.domTarget && bind());
   return [y, bind];
 }
