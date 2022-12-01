@@ -4,8 +4,7 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, useScroll, Scroll, useAnimations, Html, useCamera, PerspectiveCamera} from "@react-three/drei"
-import { a } from "@react-spring/three";
+import { ScrollControls, useScroll, Scroll, useAnimations, Html, PerspectiveCamera} from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -59,19 +58,15 @@ function CameraControls(props) {
   const ref = React.useRef()
   const set = useThree((state) => state.set);
   const scroll = useScroll();
-  console.log(ref);
 
   useFrame((state, delta) => {
-    console.log(scroll.offset)
-    console.log(ref.current)
-    //ref.current.translateX(scroll.offset);
-    //ref.current.position.lerp(new THREE.Vector3(40, 0, 0), 0.05)
+    ref.current.position.x = scroll.offset * 40
     ref.current.updateMatrixWorld();
   })
 
   return <PerspectiveCamera
-
     position={[0, 0, 5]}
+    makeDefault
     ref={ref}
     {...props}
   />
@@ -135,15 +130,10 @@ const Home = ({ data, location }) =>  {
             horizontal
           >
             <Scroll>
-            <Scene />
-            <CameraControls />
-
-
+              <CameraControls />
+              <Scene />
             </Scroll>
-
           </ScrollControls>
-
-
           <directionalLight
             castShadow
             position={[10, 20, 15]}
