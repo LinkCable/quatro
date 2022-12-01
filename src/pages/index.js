@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, useScroll, Scroll, useAnimations, Html, Merged } from "@react-three/drei"
+import { ScrollControls, useScroll, Scroll, useAnimations, Html, useCamera, PerspectiveCamera} from "@react-three/drei"
 import { a } from "@react-spring/three";
 
 import Layout from "../components/layout"
@@ -55,23 +55,24 @@ function Tidbit(props) {
 }
 
 
-function Camera(props) {
+function CameraControls(props) {
   const ref = React.useRef()
   const set = useThree((state) => state.set);
-  const scroll = useScroll()
-  console.log(scroll)
-
-  //React.useEffect(() => void set({ camera: ref.current }), []);
+  const scroll = useScroll();
+  console.log(ref);
 
   useFrame((state, delta) => {
-    ref.current.translateZ(scroll.offset * 20);
+    console.log(scroll.offset)
+    console.log(ref.current)
+    //ref.current.translateX(scroll.offset);
     //ref.current.position.lerp(new THREE.Vector3(40, 0, 0), 0.05)
     ref.current.updateMatrixWorld();
   })
 
-  return <perspectiveCamera
+  return <PerspectiveCamera
+
+    position={[0, 0, 5]}
     ref={ref}
-    fov={90}
     {...props}
   />
 }
@@ -79,9 +80,8 @@ function Camera(props) {
 
 function Page(props) {
   const group = React.useRef()
-
   return (
-    <group ref={group}  {...props}>
+    <group ref={group} {...props}>
       <Model modelFile={props.modelFile} position={props.modelPosition} scale={props.scale} />
       <Tidbit header={props.header} sentence={props.sentence} position={props.textPosition}/>
     </group>
@@ -89,13 +89,11 @@ function Page(props) {
 }
 
 function Scene(props) {
-  const { width } = useThree((state) => state.viewport)
-
 
   return (
     <>
       <Page
-        modelPosition = {[0, -1, 0 ]}
+        modelPosition = {[-1, 0, 0 ]}
         textPosition = {[0, 0, 0 ]}
         scale = {.75}
         modelFile="/3d/gundam.glb"
@@ -103,16 +101,16 @@ function Scene(props) {
         sentence="Passionate about emerging technologies and social dynamics."
       />
       <Page
-        modelPosition = {[8, 0, 0 ]}
-        textPosition = {[17, 0, 0 ]}
+        modelPosition = {[10, 0, 0 ]}
+        textPosition = {[15, 0, 0 ]}
         scale = {1}
         modelFile="/3d/meta.glb"
         header="I currently do my thing at Meta."
         sentence="Been designing here 4 years."
       />
       <Page
-        modelPosition = {[20, 0, 0 ]}
-        textPosition = {[40, 0, 0 ]}
+        modelPosition = {[25, 10, 10 ]}
+        textPosition = {[41, 10, 10 ]}
         scale = {1}
         modelFile="/3d/headset.glb"
         header="I've been in the VR Privacy space for the past year or so."
@@ -120,13 +118,10 @@ function Scene(props) {
       />
     </>
   )
-
 }
-
 
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const container = React.useRef();
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -137,14 +132,18 @@ const Home = ({ data, location }) =>  {
             pages={3} // Each page takes 100% of the height of the canvas
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
-            horizontal // Can also scroll horizontally (default: false)
-            className="scrollControls"
+            horizontal
           >
-            <Camera position={[5, 0, 0]}/>
             <Scroll>
-               <Scene />
+            <Scene />
+            <CameraControls />
+
+
             </Scroll>
+
           </ScrollControls>
+
+
           <directionalLight
             castShadow
             position={[10, 20, 15]}

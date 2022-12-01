@@ -372,16 +372,8 @@ a:focus {
 
 canvas {
   flex-grow: 1;
-  position: absolute !important;
-  top: 0;
-  z-index: -1;
 }
 
-.container {
-  display: flex;
-  flex-grow: 1;
-  height: 100%;
-}
 
 .canvas .statement {
   flex-grow: 1;
