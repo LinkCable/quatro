@@ -11,8 +11,10 @@ import Seo from "../components/seo"
 
 
 function Model(props) {
-
+  const ref = React.useRef()
   const model = useLoader(GLTFLoader, props.modelFile)
+
+  console.log(model);
 
   let mixer
   if (model.animations.length) {
@@ -28,6 +30,7 @@ function Model(props) {
   })
 
   return <primitive
+    ref={ref}
     object={model.scene}
     material={model.materials}
     position={props.position}
@@ -60,12 +63,12 @@ function CameraControls(props) {
   const scroll = useScroll();
 
   useFrame((state, delta) => {
-    ref.current.position.x = scroll.offset * 40
+    ref.current.position.x = scroll.offset * 40;
     ref.current.updateMatrixWorld();
   })
 
   return <PerspectiveCamera
-    position={[0, 0, 5]}
+    position={[-2, 0, 2]}
     makeDefault
     ref={ref}
     {...props}
@@ -88,7 +91,7 @@ function Scene(props) {
   return (
     <>
       <Page
-        modelPosition = {[-1, 0, 0 ]}
+        modelPosition = {[-1, -1, 0 ]}
         textPosition = {[0, 0, 0 ]}
         scale = {.75}
         modelFile="/3d/gundam.glb"
@@ -104,8 +107,8 @@ function Scene(props) {
         sentence="Been designing here 4 years."
       />
       <Page
-        modelPosition = {[25, 10, 10 ]}
-        textPosition = {[41, 10, 10 ]}
+        modelPosition = {[25, 0, 0 ]}
+        textPosition = {[41, 0, 0 ]}
         scale = {1}
         modelFile="/3d/headset.glb"
         header="I've been in the VR Privacy space for the past year or so."

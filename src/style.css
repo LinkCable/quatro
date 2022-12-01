@@ -102,10 +102,14 @@ html, body {
 }
 
 footer {
-  padding: var(--spacing-0);
-  margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
+  display: flex;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: var(--spacing-0);
+  margin: var(--spacing-0) auto;
 }
 
 hr {
@@ -372,6 +376,8 @@ a:focus {
 
 canvas {
   flex-grow: 1;
+  position: absolute !important;
+  top: 0;
 }
 
 
