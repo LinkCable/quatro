@@ -102,7 +102,7 @@ html, body {
 }
 
 footer {
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: var(--spacing-5);
   display: flex;
   position: absolute;
   width: 100%;
@@ -355,6 +355,16 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+}
+
+.blog main {
+  justify-content: center;
+}
+
+.blog .blog-entries {
+  list-style: none;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-10) var(--spacing-5) var(--spacing-8);
 }
 
 .blog-post header h1 {

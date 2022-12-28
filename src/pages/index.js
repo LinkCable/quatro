@@ -14,8 +14,6 @@ function Model(props) {
   const ref = React.useRef()
   const model = useLoader(GLTFLoader, props.modelFile)
 
-  console.log(model);
-
   let mixer
   if (model.animations.length) {
     mixer = new THREE.AnimationMixer(model.scene);
@@ -63,12 +61,13 @@ function CameraControls(props) {
   const scroll = useScroll();
 
   useFrame((state, delta) => {
-    ref.current.position.x = scroll.offset * 40;
+    ref.current.position.x = scroll.offset * 30;
+    console.log(scroll)
     ref.current.updateMatrixWorld();
   })
 
   return <PerspectiveCamera
-    position={[-2, 0, 2]}
+    position={[0, 0, 3]}
     makeDefault
     ref={ref}
     {...props}
@@ -91,7 +90,7 @@ function Scene(props) {
   return (
     <>
       <Page
-        modelPosition = {[-1, -1, 0 ]}
+        modelPosition = {[-0.5, -1, 0 ]}
         textPosition = {[0, 0, 0 ]}
         scale = {.75}
         modelFile="/3d/gundam.glb"
@@ -99,17 +98,17 @@ function Scene(props) {
         sentence="Passionate about emerging technologies and social dynamics."
       />
       <Page
-        modelPosition = {[10, 0, 0 ]}
-        textPosition = {[15, 0, 0 ]}
+        modelPosition = {[4, 0, 0 ]}
+        textPosition = {[6, 0, 0 ]}
         scale = {1}
         modelFile="/3d/meta.glb"
         header="I currently do my thing at Meta."
         sentence="Been designing here 4 years."
       />
       <Page
-        modelPosition = {[25, 0, 0 ]}
-        textPosition = {[41, 0, 0 ]}
-        scale = {1}
+        modelPosition = {[11, 0, -1 ]}
+        textPosition = {[16, 0, 0 ]}
+        scale = {.75}
         modelFile="/3d/headset.glb"
         header="I've been in the VR Privacy space for the past year or so."
         sentence="While I've been here I've shipped new privacy settings and features for the Quest Pro."
@@ -127,10 +126,11 @@ const Home = ({ data, location }) =>  {
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
           <ScrollControls
-            pages={3} // Each page takes 100% of the height of the canvas
+            pages={2} // Each page takes 100% of the height of the canvas
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
             horizontal
+            infinite
           >
             <Scroll>
               <CameraControls />
