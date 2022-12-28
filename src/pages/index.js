@@ -1,123 +1,155 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as THREE from "three";
+import { graphql } from "gatsby"
 
-import { Canvas, useFrame, extend, useThree, useLoader} from "@react-three/fiber"
+import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-
-//import useHorizontal from '@oberon-amsterdam/horizontal/hook'
-import HorizontalScroll from '@oberon-amsterdam/horizontal'
+import { ScrollControls, useScroll, Scroll, useAnimations, Html, PerspectiveCamera} from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import oculus from '../models/oculus.gltf'
-import duck from '../models/duck/duck.gltf'
 
-extend({ OrbitControls })
+function Model(props) {
+  const ref = React.useRef()
+  const model = useLoader(GLTFLoader, props.modelFile)
 
-function CameraControls(props) {
-  const {
-    camera,
-    gl: { domElement },
-   } = useThree()
-   const controls = React.useRef()
-   useFrame((state) => controls.current.update())
-   return (<orbitControls ref={controls} args={[camera, domElement]} />)
-}
+  let mixer
+  if (model.animations.length) {
+    mixer = new THREE.AnimationMixer(model.scene);
+    model.animations.forEach(clip => {
+        const action = mixer.clipAction(clip)
+        action.play();
+    });
+  }
 
-function Box(props) {
-
-  console.log(props.model)
-  const oculus_gltf = useLoader(GLTFLoader, oculus)
-  const duck_gltf = useLoader(GLTFLoader, duck)
-
-  let gltf
-  props.model === "oculus" ? gltf = oculus_gltf : gltf = duck_gltf
-
-  console.log(gltf)
-
-  const bgModel = React.useRef()
-  useFrame((state, delta) => (bgModel.current.rotation.y -= 0.01))
+  useFrame((state, delta) => {
+    mixer?.update(delta)
+  })
 
   return <primitive
-    ref={bgModel}
-    object={gltf.scene}
-    scale={2}
+    ref={ref}
+    object={model.scene}
+    material={model.materials}
+    position={props.position}
+    {...props}
   />
-  /*
+}
+
+function Tidbit(props) {
   return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={3}
-    >
-        <boxGeometry args={[2 ,.5 , 1]} />
-        <meshStandardMaterial color={props.color}/>
-    </mesh>
-  )*/
+  <Html
+    center={true}
+    position={props.position}
+    zIndexRange={[5, 1]}>
+    <div className="statement">
+      <h1>
+        {props.header}
+      </h1>
+      <p>
+        {props.sentence}
+      </p>
+    </div>
+  </Html>
+  )
+}
+
+
+function CameraControls(props) {
+  const ref = React.useRef()
+  const set = useThree((state) => state.set);
+  const scroll = useScroll();
+
+  useFrame((state, delta) => {
+    ref.current.position.x = scroll.offset * 30;
+    console.log(scroll)
+    ref.current.updateMatrixWorld();
+  })
+
+  return <PerspectiveCamera
+    position={[0, 0, 3]}
+    makeDefault
+    ref={ref}
+    {...props}
+  />
+}
+
+
+function Page(props) {
+  const group = React.useRef()
+  return (
+    <group ref={group} {...props}>
+      <Model modelFile={props.modelFile} position={props.modelPosition} scale={props.scale} />
+      <Tidbit header={props.header} sentence={props.sentence} position={props.textPosition}/>
+    </group>
+  )
+}
+
+function Scene(props) {
+
+  return (
+    <>
+      <Page
+        modelPosition = {[-0.5, -1, 0 ]}
+        textPosition = {[0, 0, 0 ]}
+        scale = {.75}
+        modelFile="/3d/gundam.glb"
+        header="I am a product designer."
+        sentence="Passionate about emerging technologies and social dynamics."
+      />
+      <Page
+        modelPosition = {[4, 0, 0 ]}
+        textPosition = {[6, 0, 0 ]}
+        scale = {1}
+        modelFile="/3d/meta.glb"
+        header="I currently do my thing at Meta."
+        sentence="Been designing here 4 years."
+      />
+      <Page
+        modelPosition = {[11, 0, -1 ]}
+        textPosition = {[16, 0, 0 ]}
+        scale = {.75}
+        modelFile="/3d/headset.glb"
+        header="I've been in the VR Privacy space for the past year or so."
+        sentence="While I've been here I've shipped new privacy settings and features for the Quest Pro."
+      />
+    </>
+  )
 }
 
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
-  const container = React.useRef()
-  const [model, setModel] = React.useState("oculus")
-
-  const listenScrollEvent = (event) => {
-    if (event.target.scrollLeft < 2000) {
-      setModel("oculus")
-    } else {
-      setModel("heart")
-    }
-  }
-
-  React.useEffect(() => {
-    new HorizontalScroll({ container:  document.querySelector('.container') });
-    container.current.addEventListener('scroll', listenScrollEvent);
-    return () => {
-      container.current.removeEventListener('scroll', listenScrollEvent)
-    }
-  }, [])
-
-  //console.log(scrollDistance)
-
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <div className="container" ref={container}>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-        <h1>
-          This is a test of the pacer system.
-        </h1>
-      </div>
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
-          <rectAreaLight
-            width={3}
-            height={3}
-            color={0xffc9f9}
-            intensity={5.6}
-            position={[-1, 1, 2]}
-            lookAt={[0, 0, 0]}
-            penumbra={1}
+          <ScrollControls
+            pages={2} // Each page takes 100% of the height of the canvas
+            distance={1} // A factor that increases scroll bar travel (default: 1)
+            damping={4} // Friction, higher is faster (default: 4)
+            horizontal
+            infinite
+          >
+            <Scroll>
+              <CameraControls />
+              <Scene />
+            </Scroll>
+          </ScrollControls>
+          <directionalLight
+            castShadow
+            position={[10, 20, 15]}
+            shadow-camera-right={8}
+            shadow-camera-top={8}
+            shadow-camera-left={-8}
+            shadow-camera-bottom={-8}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            intensity={2}
+            shadow-bias={-0.0001}
           />
-          <Box position={[0, 0, 0]} model={model}/>
-          <CameraControls />
+          <pointLight position={[0, 20, 20]} />
         </Canvas>
       </React.Suspense>
     </Layout>

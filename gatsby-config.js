@@ -6,7 +6,7 @@ module.exports = {
       summary: `designer`,
     },
     description: `A personal portfolio.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://www.gatsbyjs.com`,
     social: {
       twitter: `philkt_`,
     },
@@ -18,6 +18,7 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+
       },
     },
     {
@@ -25,6 +26,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fonts`,
+        path: `${__dirname}/static/fonts/`,
       },
     },
     {
@@ -77,6 +85,7 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
+                  title: node.frontmatter.title,
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
@@ -104,6 +113,7 @@ module.exports = {
                 }
               }
             `,
+            title: "Your Site's RSS Feed",
             output: "/rss.xml",
           },
         ],

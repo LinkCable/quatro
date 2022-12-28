@@ -1,3 +1,15 @@
+@import 'react-horizontal-vertical/rhv.css';
+
+/* Font Faces */
+@font-face {
+  font-family: "Gulax";
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url(/fonts/Gulax-Regular.woff2) format("woff2");
+}
+
 /* CSS Custom Properties Definitions */
 
 :root {
@@ -27,7 +39,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+  --fontFamily-sans: "Gulax", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
@@ -82,6 +94,7 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   min-height: 100vh;
+  overscroll-behavior-y: none;
 }
 
 html, body {
@@ -89,10 +102,14 @@ html, body {
 }
 
 footer {
-  padding: var(--spacing-0);
+  padding: var(--spacing-5);
+  display: flex;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: var(--spacing-0);
   margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
 }
 
 hr {
@@ -288,6 +305,15 @@ a:focus {
   margin: 0;
 }
 
+.home-link {
+  flex-grow: 2;
+}
+
+.blog-link, .resume-link {
+  flex-grow: 1;
+  text-align: right;
+}
+
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
@@ -331,6 +357,16 @@ a:focus {
   border-radius: 100%;
 }
 
+.blog main {
+  justify-content: center;
+}
+
+.blog .blog-entries {
+  list-style: none;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-10) var(--spacing-5) var(--spacing-8);
+}
+
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
@@ -350,26 +386,32 @@ a:focus {
 
 canvas {
   flex-grow: 1;
-}
-
-.canvas {
   position: absolute !important;
   top: 0;
-  z-index: -1;
 }
 
-.container {
-  display: flex;
-  flex-grow: 1;
-}
 
-.container h1 {
+.canvas .statement {
   flex-grow: 1;
   display: flex;
-  min-width: 60%;
+  min-width: 40em;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: var(--spacing-12);
+}
+
+.canvas h1 {
+  margin: 0;
+  font-family: "Gulax";
+  margin-bottom: var(--spacing-2);
+  -webkit-text-stroke-width: .025rem;
+  -webkit-text-stroke-color: #f9f9f9;
+}
+
+.canvas > div > canvas + div {
+  overflow: hidden !important;
 }
 
 .gatsby-highlight {

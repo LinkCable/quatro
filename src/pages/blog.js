@@ -26,8 +26,7 @@ const Blog = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Blog" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <ol className="blog-entries">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
