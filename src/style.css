@@ -198,7 +198,7 @@ ol {
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
   margin-bottom: var(--spacing-8);
-  list-style-position: outside;
+  list-style-position: inside;
   list-style-image: none;
 }
 
@@ -244,6 +244,7 @@ blockquote > ol {
 main {
   height: 100%;
   display: flex;
+  justify-content: center;
 }
 
 table {
@@ -367,6 +368,13 @@ a:focus {
   padding: var(--spacing-10) var(--spacing-5) var(--spacing-8);
 }
 
+.blog-post {
+  max-width: var(--maxWidth-wrapper);
+  padding-top: var(--spacing-24);
+  padding-right: var(--spacing-5);
+  padding-left: var(--spacing-5);
+}
+
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
@@ -378,6 +386,17 @@ a:focus {
 
 .blog-post-nav ul {
   margin: var(--spacing-0);
+}
+
+.blog-post footer {
+  position: relative;
+  padding: var(--spacing-4) 0;
+}
+
+.blog-post footer .bio {
+  margin-bottom: 0;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .home {

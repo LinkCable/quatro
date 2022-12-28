@@ -3,7 +3,7 @@ module.exports = {
     title: `philkt`,
     author: {
       name: `Phil Kimura-Thollander`,
-      summary: `designer`,
+      summary: `A designer`,
     },
     description: `A personal portfolio.`,
     siteUrl: `https://www.gatsbyjs.com`,

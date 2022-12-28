@@ -36,9 +36,10 @@ const Layout = ({ location, title, children }) => {
     <div className={isRootPath ? "global-wrapper home" : "global-wrapper " + location.pathname.replace('/','')} data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
-      <footer>
+      {isRootPath ?
+      <footer className="global-footer">
         Built different
-      </footer>
+      </footer> : null }
     </div>
   )
 }

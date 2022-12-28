@@ -130,7 +130,6 @@ const Home = ({ data, location }) =>  {
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
             horizontal
-            infinite
           >
             <Scroll>
               <CameraControls />
