@@ -154,7 +154,11 @@ orange: #ed7b3d
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #ed7b3d;
+  --color-purple: #4345ee;
+  --color-forest: #3c5d3a;
+  --color-green: #277f22;
+  --color-orange: #ed7b3d;
+  --color-primary: var(--color-orange);
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;

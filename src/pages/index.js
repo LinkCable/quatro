@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, useScroll, Scroll, useAnimations, Html, PerspectiveCamera} from "@react-three/drei"
+import { ScrollControls, useScroll, Scroll, useAnimations, Text, Html, PerspectiveCamera} from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -37,6 +37,7 @@ function Model(props) {
 }
 
 function Tidbit(props) {
+
   return (
   <Html
     center={true}
@@ -62,7 +63,6 @@ function CameraControls(props) {
 
   useFrame((state, delta) => {
     ref.current.position.x = scroll.offset * 30;
-    console.log(scroll)
     ref.current.updateMatrixWorld();
   })
 
@@ -80,6 +80,14 @@ function Page(props) {
   return (
     <group ref={group} {...props}>
       <Model modelFile={props.modelFile} position={props.modelPosition} scale={props.scale} />
+     {/*<Text
+      position={props.textPosition}
+      fontSize={0.12}
+      color={0x1a202c}
+      font={"fonts/array/Array-BoldWide.woff"}
+      characters="abcdefghijklmnopqrstuvwxyz0123456789!">
+        {props.header}
+     </Text>*/}
       <Tidbit header={props.header} sentence={props.sentence} position={props.textPosition}/>
     </group>
   )
@@ -90,24 +98,24 @@ function Scene(props) {
   return (
     <>
       <Page
-        modelPosition = {[-0.5, -1, 0 ]}
-        textPosition = {[0, 0, 0 ]}
+        modelPosition = {[0, 0, .5]}
+        textPosition = {[0, 0, 0]}
         scale = {.75}
-        modelFile="/3d/gundam.glb"
+        modelFile="/3d/shapes.glb"
         header="I am a product designer."
         sentence="Passionate about emerging technologies and social dynamics."
       />
       <Page
-        modelPosition = {[4, 0, 0 ]}
-        textPosition = {[6, 0, 0 ]}
+        modelPosition = {[4, 0, 0]}
+        textPosition = {[4, 0, 0]}
         scale = {1}
         modelFile="/3d/meta.glb"
         header="I currently do my thing at Meta."
         sentence="Been designing here 4 years."
       />
       <Page
-        modelPosition = {[11, 0, -1 ]}
-        textPosition = {[16, 0, 0 ]}
+        modelPosition = {[11, 0, -1]}
+        textPosition = {[16, 0, 0]}
         scale = {.75}
         modelFile="/3d/headset.glb"
         header="I've been in the VR Privacy space for the past year or so."
