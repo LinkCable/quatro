@@ -123,7 +123,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Phil KT Personal Blog`,
-        short_name: `Philkt`,
+        short_name: `philkt`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

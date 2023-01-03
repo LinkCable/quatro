@@ -16,10 +16,10 @@ const Layout = ({ location, title, children }) => {
 
         <div>
           <h2 className="main-heading resume-link">
-            <a href={resume}>Resume</a>
+            <a href={resume}>resume</a>
           </h2>
           <h2 className="main-heading blog-link">
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog">blog</Link>
           </h2>
         </div>
       </div>
