@@ -108,18 +108,34 @@ function Scene(props) {
       <Page
         modelPosition = {[4, 0, 0]}
         textPosition = {[4, 0, 0]}
-        scale = {1}
+        scale = {.9}
         modelFile="/3d/meta.glb"
         header="I currently do my thing at Meta."
         sentence="Been designing here 4 years."
       />
       <Page
-        modelPosition = {[11, 0, -1]}
-        textPosition = {[16, 0, 0]}
+        modelPosition = {[10.2, 0, -1]}
+        textPosition = {[15, 0, 0]}
         scale = {.75}
         modelFile="/3d/headset.glb"
-        header="I've been in the VR Privacy space for the past year or so."
-        sentence="While I've been here I've shipped new privacy settings and features for the Quest Pro."
+        header="I've been in the VR privacy space for the past year or so."
+        sentence= {
+          <p>
+            While I've been here I've shipped <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+          </p>
+        }
+      />
+      <Page
+        modelPosition = {[10.5, 0, -1]}
+        textPosition = {[19, 0, 0]}
+        scale = {1}
+        modelFile="/3d/facebook.glb"
+        header="Prior to that I worked on the Facebook app."
+        sentence= {
+          <p>
+            I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, working together with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
+          </p>
+        }
       />
     </>
   )
@@ -134,7 +150,7 @@ const Home = ({ data, location }) =>  {
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
           <ScrollControls
-            pages={2} // Each page takes 100% of the height of the canvas
+            //pages={2} // Each page takes 100% of the height of the canvas
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
             horizontal
