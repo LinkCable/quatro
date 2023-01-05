@@ -129,7 +129,7 @@ function Scene(props) {
         header="I've been in the VR privacy space for the past year or so."
         sentence= {
           <p>
-            While I've been here I've worked on <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+            While here I've worked on <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
           </p>
         }
       />
