@@ -1,59 +1,63 @@
-@import 'react-horizontal-vertical/rhv.css';
-
 /* Font Faces */
-
 
 /* Array */
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-Regular.woff2) format('woff2');
+  src: url('/fonts/array/Array-Regular.woff2') format('woff2'),
+       url('/fonts/array/Array-Regular.woff') format('woff'),
+       url('/fonts/array/Array-Regular.ttf') format('ttf');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-Wide.woff2) format('woff2');
+  src: url('/fonts/array/Array-Wide.woff2') format('woff2'),
+       url('/fonts/array/Array-Wide.woff') format('woff'),
+       url('/fonts/array/Array-Wide.ttf') format('ttf');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
   font-stretch: expanded;
 }
 
-
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-Semibold.woff2) format('woff2');
+  src: url('/fonts/array/Array-Semibold.woff2') format('woff2'),
+       url('/fonts/array/Array-Semibold.woff') format('woff'),
+       url('/fonts/array/Array-Semibold.ttf') format('ttf');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-SemiboldWide.woff2) format('woff2');
+  src: url('/fonts/array/Array-SemiboldBold.woff2') format('woff2'),
+       url('/fonts/array/Array-SemiboldBold.woff') format('woff'),
+       url('/fonts/array/Array-SemiboldBold.ttf') format('ttf');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
   font-stretch: expanded;
 }
 
-
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-Bold.woff2) format('woff2');
+  src: url('/fonts/array/Array-Bold.woff2') format('woff2'),
+       url('/fonts/array/Array-Bold.woff') format('woff'),
+       url('/fonts/array/Array-Bold.ttf') format('ttf');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'Array';
-  src: url(/fonts/Array-BoldWide.woff2) format('woff2');
+  src: url('/fonts/array/Array-BoldWide.woff2') format('woff2'),
+       url('/fonts/array/Array-BoldWide.woff') format('woff'),
+       url('/fonts/array/Array-BoldWide.ttf') format('ttf');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
@@ -63,7 +67,9 @@
 /* Sentient */
 @font-face {
   font-family: 'Sentient';
-  src: url(/fonts/Sentient-Variable.woff2) format('woff2');
+  src: url('/fonts/sentient/Sentient-Variable.woff2') format('woff2'),
+       url('/fonts/sentient/Sentient-Variable.woff') format('woff'),
+       url('/fonts/sentient/Sentient-Variable.ttf') format('ttf');
   font-weight: 200 700;
   font-display: swap;
   font-style: normal;
@@ -71,7 +77,9 @@
 
 @font-face {
   font-family: 'Sentient';
-  src: url(/fonts/Sentient-VariableItalic.woff2) format('woff2');
+  src: url('/fonts/sentient/Sentient-VariableItalic.woff2') format('woff2'),
+       url('/fonts/sentient/Sentient-VariableItalic.woff') format('woff'),
+       url('/fonts/sentient/Sentient-VariableItalic.ttf') format('ttf');
   font-weight: 200 700;
   font-display: swap;
   font-style: italic;
@@ -80,19 +88,64 @@
 /* Panchang */
 @font-face {
   font-family: 'Panchang';
-  src: url(/fonts/Panchang-Variable.woff2) format('woff2');
+  src: url('/fonts/panchang/Panchang-Variable.woff2') format('woff2'),
+       url('/fonts/panchang/Panchang-Variable.woff') format('woff'),
+       url('/fonts/panchang/Panchang-Variable.ttf') format('ttf');
   font-weight: 200 700;
   font-display: swap;
   font-style: normal;
 }
 
-/* Nice colors
+/* FT88 */
+@font-face {
+  font-family: 'FT88';
+  src: url('/fonts/ft88/FT88-Regular.woff2') format('woff2'),
+       url('/fonts/ft88/FT88-Regular.woff') format('woff'),
+       url('/fonts/ft88/FT88-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
 
-purple: #4345ee
-green: 3c5d3a
-brighter-green: #277f22
-orange: #ed7b3d
-*/
+@font-face {
+  font-family: 'FT88';
+  src: url('/fonts/ft88/FT88-Expanded.woff2') format('woff2'),
+       url('/fonts/ft88/FT88-Expanded.woff') format('woff'),
+       url('/fonts/ft88/FT88-Expanded.ttf') format('ttf');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  font-stretch: expanded;
+}
+
+@font-face {
+  font-family: 'FT88';
+  src: url('/fonts/ft88/FT88-Italic.woff2') format('woff2'),
+       url('/fonts/ft88/FT88-Italic.woff') format('woff'),
+       url('/fonts/ft88/FT88-Italic.ttf') format('ttf');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'FT88';
+  src: url('/fonts/ft88/FT88-Bold.woff2') format('woff2'),
+       url('/fonts/ft88/FT88-Bold.woff') format('woff'),
+       url('/fonts/ft88/FT88-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FT88';
+  src: url('/fonts/ft88/FT88-Gothique.woff2') format('woff2'),
+       url('/fonts/ft88/FT88-Gothique.woff') format('woff'),
+       url('/fonts/ft88/FT88-Gothique.ttf') format('ttf');
+  font-weight: 700;
+  font-display: swap;
+  font-style: oblique;
+}
 
 /* CSS Custom Properties Definitions */
 
@@ -131,6 +184,7 @@ orange: #ed7b3d
   --fontFamily-accent: "Array", system-ui, -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --fontFamily-monospace: "FT88", "Courier New", Courier, monospace;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
   --accent-heading: var(--fontFamily-accent);
@@ -194,6 +248,9 @@ html, body {
 }
 
 footer {
+  font-family: var(--fontFamily-monospace);
+  font-style: oblique;
+  font-weight: bold;
   padding: var(--spacing-5);
   display: flex;
   position: absolute;
@@ -335,6 +392,7 @@ blockquote > ol {
 
 main {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -368,6 +426,7 @@ a:focus {
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -378,8 +437,7 @@ a:focus {
   margin-bottom: var(--spacing-12);
   position: absolute;
   display: flex;
-  left: var(--spacing-5);
-  right: var(--spacing-5);
+  width: 100%;
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
@@ -428,6 +486,11 @@ a:focus {
   margin-bottom: var(--spacing-4);
 }
 
+.post-list-item small {
+  font-family: var(--fontFamily-accent);
+  font-size: var(--fontSize-1);
+}
+
 .header-link-home {
   font-weight: var(--fontWeight-bold);
   font-family: var(--accent-heading);
@@ -462,6 +525,7 @@ a:focus {
 }
 
 .blog-post {
+  width: 100%;
   max-width: var(--maxWidth-wrapper);
   padding-top: var(--spacing-24);
   padding-right: var(--spacing-5);
@@ -474,7 +538,7 @@ a:focus {
 
 .blog-post header p {
   font-size: var(--fontSize-2);
-  font-family: var(--fontFamily-sans);
+  font-family: var(--fontFamily-accent);
 }
 
 .blog-post-nav ul {
@@ -490,6 +554,7 @@ a:focus {
   margin-bottom: 0;
   flex-grow: 1;
   align-items: center;
+  font-family: var(--fontFamily-serif);
 }
 
 .home {
@@ -506,12 +571,13 @@ canvas {
 .canvas .statement {
   flex-grow: 1;
   display: flex;
-  min-width: 40em;
+  width: 100vw;
+  max-width: var(--maxWidth-wrapper);
   flex-flow: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--spacing-12);
+  padding: var(--spacing-4);
 }
 
 .canvas h1 {
@@ -523,6 +589,12 @@ canvas {
 
 .canvas > div > canvas + div {
   overflow: hidden !important;
+}
+
+.not-found {
+  height: 100vh;
+  flex-flow: column;
+  align-items: center;
 }
 
 .gatsby-highlight {

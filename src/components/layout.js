@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import resume from "../pdfs/philkt-resume.pdf"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, className }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -35,7 +35,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <div className={isRootPath ? "global-wrapper home" : "global-wrapper " + location.pathname.replace('/','')} data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
-      <main>{children}</main>
+      <main className={className}>{children}</main>
       {isRootPath ?
       <footer className="global-footer">
         Built different
