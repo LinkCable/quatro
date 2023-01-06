@@ -38,7 +38,7 @@ const Layout = ({ location, title, children, className }) => {
       <main className={className}>{children}</main>
       {isRootPath ?
       <footer className="global-footer">
-        b. 1994 - d. ????
+        built 2023
       </footer> : null }
     </div>
   )

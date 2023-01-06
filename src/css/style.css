@@ -240,6 +240,7 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   min-height: 100vh;
+  overflow: hidden;
   overscroll-behavior-y: none;
   background-color: var(--color-accent);
 }
@@ -514,6 +515,7 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+  overflow: hidden;
 }
 
 .blog main {
@@ -607,6 +609,7 @@ canvas {
 
 #___gatsby {
   height: 100%;
+  overflow: auto;
 }
 
 #gatsby-focus-wrapper {
