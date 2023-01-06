@@ -428,6 +428,7 @@ a:focus {
   flex-direction: column;
   position: relative;
   align-items: center;
+  height: 100%;
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -556,10 +557,6 @@ a:focus {
   flex-grow: 1;
   align-items: center;
   font-family: var(--fontFamily-serif);
-}
-
-.home {
-  height: 100vh;
 }
 
 canvas {
