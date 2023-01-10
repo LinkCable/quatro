@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, useScroll, Scroll, useAnimations, Text, Html, PerspectiveCamera} from "@react-three/drei"
+import { ScrollControls, useScroll, Scroll, PerspectiveCamera} from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -36,130 +36,31 @@ function Model(props) {
   />
 }
 
-function Tidbit(props) {
-  return (
-  <Html
-    center={true}
-    position={props.position}
-    occlude="blending"
-  >
-    <div className="statement">
-      <h1>
-        {props.header}
-      </h1>
-      <p>
-        {props.sentence}
-      </p>
-    </div>
-  </Html>
-  )
-}
-
-
-function CameraControls(props) {
-  const ref = React.useRef()
-  const set = useThree((state) => state.set);
-  const scroll = useScroll();
-
-  useFrame((state, delta) => {
-    ref.current.position.x = scroll.offset * 20;
-    ref.current.updateMatrixWorld();
-  })
-
-  return <PerspectiveCamera
-    position={[0, 0, 2.25]}
-    makeDefault
-    ref={ref}
-    {...props}
-  />
-}
-
-
-function Page(props) {
-  const group = React.useRef()
-  return (
-    <group ref={group} {...props}>
-      <Model
-        modelFile={props.modelFile}
-        position={props.modelPosition}
-        scale={props.scale}
-      />
-      {/*<Text
-        position={props.textPosition}
-        fontSize={0.12}
-        color={0x1a202c}
-        font={"fonts/array/Array-BoldWide.woff"}
-        characters="abcdefghijklmnopqrstuvwxyz0123456789!">
-        {props.header}
-      </Text>*/}
-      <Tidbit
-        header={props.header}
-        sentence={props.sentence}
-        position={props.textPosition}
-      />
-    </group>
-  )
-}
-
-function Scene(props) {
+function Models(props) {
+  const { width } = useThree((state) => state.viewport)
 
   return (
     <>
-      <Page
-        modelPosition = {[0, 0, .5]}
-        textPosition = {[0, 0, 0]}
+      <Model
         scale = {.75}
         modelFile="/3d/shapes.glb"
-        header="I am a product designer."
-        sentence="Passionate about emerging technologies and social dynamics."
-      />
-      <Page
-        modelPosition = {[3.5, 0, -1]}
-        textPosition = {[4, 0, 0]}
-        scale = {.9}
+        position = {[0,0,0]}
+      >
+      </Model>
+      <Model
+        scale = {.75}
         modelFile="/3d/meta.glb"
-        header="I currently do my thing at Meta."
-        sentence="Been designing here 4 years."
+        position = {[width,0,0]}
       />
-      <Page
-        modelPosition = {[11, 0, -1]}
-        textPosition = {[13, 0, 0]}
-        scale = {.7}
+      <Model
+        scale = {.6}
         modelFile="/3d/oculus.glb"
-        header="I've been in the VR privacy space for the past year or so."
-        sentence= {
-          <p>
-            While here I've worked on <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
-          </p>
-        }
-      />
-      <Page
-        modelPosition = {[10.5, 0, -1]}
-        textPosition = {[16, 0, 0]}
-        scale = {1}
-        modelFile="/3d/facebook.glb"
-        header="Prior to that I worked on the Facebook app."
-        sentence= {
-          <p>
-            I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, working together with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
-          </p>
-        }
-      />
-      <Page
-        modelPosition = {[24, 0, 0]}
-        textPosition = {[21, 0, 0]}
-        modelFile= "/3d/gundam.glb"
-        scale= {1}
-        header="That's all."
-        sentence= {
-          <p>
-            Feel free to reach out to me if you want to know more.
-          </p>
-        }
+        position = {[width*2+1.5,0,0]}
       />
     </>
   )
 }
+
 
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -170,16 +71,40 @@ const Home = ({ data, location }) =>  {
       <React.Suspense fallback={null}>
         <Canvas className="canvas">
           <ScrollControls
-            pages={2} // Each page takes 100% of the height of the canvas
+            pages={4}
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={4} // Friction, higher is faster (default: 4)
             horizontal
           >
-            <Scroll>
-              <CameraControls />
-              <Scene />
+            <Scroll>              
+              <Models/>
+            </Scroll>
+            <Scroll html occlude>
+              <div className="statement">
+                <h1>I am a product designer.</h1>
+                <p>Passionate about emerging technologies and social dynamics.</p>
+              </div>
+              <div className="statement" style ={{left: "100vw"}}>
+                <h1>I currently do my thing at Meta.</h1>
+                <p>Been designing here 4 years.</p>
+              </div>
+              <div className="statement" style ={{left: "180vw"}}>
+                <h1>I've been in the VR privacy space for the past year or so.</h1>
+                <p>
+                  While here I've worked on <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+                </p>
+              </div>
+              <div className="statement" style ={{left: "300vw"}}>
+                <h1>Prior to that I worked on the Facebook app.</h1>
+                <p>
+                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, working together with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
+                </p>
+              </div>
             </Scroll>
           </ScrollControls>
+          
+          <PerspectiveCamera makeDefault position={[0,0,5]}/>
+
           <directionalLight
             castShadow
             position={[10, 20, 15]}
@@ -193,6 +118,8 @@ const Home = ({ data, location }) =>  {
             shadow-bias={-0.0001}
           />
           <pointLight position={[0, 20, 20]} />
+
+          
         </Canvas>
       </React.Suspense>
     </Layout>

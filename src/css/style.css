@@ -574,12 +574,17 @@ canvas {
   flex-grow: 1;
   display: flex;
   width: 100vw;
-  max-width: var(--maxWidth-wrapper);
+  height: 100vh;
   flex-flow: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: var(--spacing-4);
+  position: absolute;
+}
+
+.statement h1, .statement p {
+  max-width: var(--maxWidth-wrapper);
 }
 
 .canvas h1 {
