@@ -53,8 +53,8 @@ function Models(props) {
         position = {[width,0,0]}
       />
       <Model
-        scale = {.6}
-        modelFile="/3d/oculus.glb"
+        scale = {.5}
+        modelFile="/3d/quest-pro.glb"
         position = {[width*2+1.5,0,0]}
       />
     </>
