@@ -214,10 +214,11 @@
   --color-orange: #ed7b3d;
   --color-primary: var(--color-orange);
   --color-text: #2e353f;
-  --color-text-light: #4f5969;
+  --color-text-light: #dce0e5;
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-header-shadow: #adbef2;
 }
 
 /* HTML elements */
@@ -585,6 +586,10 @@ canvas {
 
 .statement h1, .statement p {
   max-width: var(--maxWidth-wrapper);
+}
+
+.statement h1 {
+  text-shadow: 2px 2px var(--color-header-shadow);
 }
 
 .canvas h1 {
