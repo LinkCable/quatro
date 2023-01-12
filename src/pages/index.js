@@ -4,12 +4,14 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { useAspect, ScrollControls, useScroll, Scroll, PerspectiveCamera, useVideoTexture, useTexture } from "@react-three/drei"
+import { Image, ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture } from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import halloween from "../videos/pixel.mp4"
+import halloween from "../videos/halloween.mp4"
+import halloweenPlaceholder from "../images/halloween.png";
+import saya from "../images/saya.jpg"
 
 
 function Model(props) {
@@ -42,21 +44,20 @@ function Model(props) {
 
 
 function Phone(props) {
-  const ref = React.useRef()
-  const model = useLoader(GLTFLoader, props.modelFile)
-  const texture = useVideoTexture(props.video)
-  console.log(texture)
-
+  const texture = useVideoTexture(props.video);
+  const fallbackTexture = useTexture(halloweenPlaceholder);
   const aspectRatio = 1846 / 896;
 
   return (
     <>
-      <React.Suspense fallback="../images/profile-pic.jpg">
         <mesh scale={[1, 1*aspectRatio, 0]} position={props.videoPosition} >
           <planeGeometry />
-          <meshBasicMaterial map={texture} toneMapped={false} />
+          <React.Suspense fallback={
+            <meshBasicMaterial map={fallbackTexture} toneMapped={false} />
+          }>
+            <meshBasicMaterial map={texture} toneMapped={false} />
+          </React.Suspense>
         </mesh>
-      </React.Suspense>
     </>
     
   )
@@ -85,12 +86,13 @@ function Models(props) {
         position = {[width*2,.5,0]}
       />
       <Phone
-        scale = {20}
-        modelFile="/3d/s9.glb"
-        position = {[width*3,0,-.5]}
         videoPosition = {[width*3,.7,0]}
         video={halloween}
       />
+      <mesh scale={[1, 1, 0]} position={[width*4,1,0]} >
+        <planeGeometry />
+        <meshBasicMaterial map={useTexture(saya)} toneMapped={false} />
+      </mesh>
     </>
   )
 }
@@ -118,11 +120,11 @@ const Home = ({ data, location }) =>  {
                 <h1>I am a product designer</h1>
                 <p>Passionate about emerging technologies and social dynamics.</p>
               </div>
-              <div className="statement meta" style ={{left: "100vw"}}>
+              <div className="statement meta" style={{left: "100vw"}}>
                 <h1>I currently do my thing at Meta</h1>
                 <p>Been designing here 4 years.</p>
               </div>
-              <div className="statement vr" style ={{left: "200vw"}}>
+              <div className="statement vr" style={{left: "200vw"}}>
                 <h1>Right now I focus on privacy in VR</h1>
                 <p>
                   I've helped launch <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
@@ -145,9 +147,11 @@ const Home = ({ data, location }) =>  {
                 <p>
                   But feel free to <a href="mailto:hi@philkt.me">drop me a line</a> if you're interested in chatting.
                 </p>
+                
               </div>
             </Scroll>
           </ScrollControls>
+          
           
           <PerspectiveCamera makeDefault position={[0,0,5]}/>
 
