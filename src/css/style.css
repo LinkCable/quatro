@@ -176,6 +176,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+  --spacing-36: 9rem;
   --fontFamily-sans: "Panchang", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -214,10 +215,11 @@
   --color-orange: #ed7b3d;
   --color-primary: var(--color-orange);
   --color-text: #2e353f;
-  --color-text-light: #4f5969;
+  --color-text-light: #dce0e5;
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-header-shadow: #adbef2;
 }
 
 /* HTML elements */
@@ -508,6 +510,7 @@ a:focus {
 
 .bio p {
   margin-bottom: var(--spacing-0);
+  font-weight: normal;
 }
 
 .bio-avatar {
@@ -574,12 +577,29 @@ canvas {
   flex-grow: 1;
   display: flex;
   width: 100vw;
-  max-width: var(--maxWidth-wrapper);
+  height: 100vh;
   flex-flow: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: var(--spacing-4);
+  position: absolute;
+}
+
+.statement h1, .statement p {
+  max-width: var(--maxWidth-wrapper);
+}
+
+.statement h1 {
+  text-shadow: 2px 2px var(--color-header-shadow);
+}
+
+.vr {
+  margin-top: var(--spacing-24);;
+}
+
+.fb {
+  margin-top: var(--spacing-36);
 }
 
 .canvas h1 {
