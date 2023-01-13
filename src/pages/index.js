@@ -89,10 +89,11 @@ function Models(props) {
         videoPosition = {[width*3,.7,0]}
         video={halloween}
       />
-      <mesh scale={[1, 1, 0]} position={[width*4,1,0]} >
-        <planeGeometry />
-        <meshBasicMaterial map={useTexture(saya)} toneMapped={false} />
-      </mesh>
+      <Model
+        scale = {.8}
+        modelFile="/3d/misc-portfolio.glb"
+        position = {[width*4,.5,0]}
+      />
     </>
   )
 }
@@ -167,7 +168,7 @@ const Home = ({ data, location }) =>  {
             intensity={2}
             shadow-bias={-0.0001}
           />
-          <pointLight position={[0, 20, 20]} />
+          <pointLight position={[0, 20, 50]} intensity={0.1}/>
 
           
         </Canvas>

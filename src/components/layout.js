@@ -32,13 +32,31 @@ const Layout = ({ location, title, children, className }) => {
     )
   }
 
+  let footerText;
+  console.log(Math.random() * (4));
+  switch (Math.floor(Math.random() * (4))) {
+    case 0:
+      footerText = "built 2023"
+      break;
+    case 1:
+      footerText = "artisanal craft code"
+      break;
+    case 2:
+      footerText = "test"
+      break;
+    case 3:
+      footerText = "mai tai"
+      break;
+    default:
+  }
+
   return (
     <div className={isRootPath ? "global-wrapper home" : "global-wrapper " + location.pathname.replace('/','')} data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main className={className}>{children}</main>
       {isRootPath ?
       <footer className="global-footer">
-        built 2023
+        {footerText}
       </footer> : null }
     </div>
   )

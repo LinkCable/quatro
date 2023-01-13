@@ -36,6 +36,7 @@
   "react.production.min.js": "react.production.min.js",
   "static/DuckCM.png": "static/DuckCM-86d7a1695c182b061d0fee6c615a97f5.png",
   "static/halloween.mp4": "static/halloween-6fbe063645d374e5afe9d481db26b777.mp4",
+  "static/halloween.png": "static/halloween-1957064ec6b3acd84d5c5d1945dffadd.png",
   "static/merriweather-latin-300.woff": "static/merriweather-latin-300-58b18067ebbd21fda77b67e73c241d3b.woff",
   "static/merriweather-latin-300.woff2": "static/merriweather-latin-300-fc117160c69a8ea0851b26dd14748ee4.woff2",
   "static/merriweather-latin-300italic.woff": "static/merriweather-latin-300italic-23c3f1f88683618a4fb8d265d33d383a.woff",
@@ -88,5 +89,6 @@
   "static/montserrat-latin-900.woff2": "static/montserrat-latin-900-e66c7edc609e24bacbb705175669d814.woff2",
   "static/montserrat-latin-900italic.woff": "static/montserrat-latin-900italic-efcaa0f6a82ee0640b83a0916e6e8d68.woff",
   "static/montserrat-latin-900italic.woff2": "static/montserrat-latin-900italic-4454c775e48152c1a72510ceed3603e2.woff2",
-  "static/philkt-resume.pdf": "static/philkt-resume-7f7a76ffc01a7bfa01751c7cb089355b.pdf"
+  "static/philkt-resume.pdf": "static/philkt-resume-7f7a76ffc01a7bfa01751c7cb089355b.pdf",
+  "static/saya.jpg": "static/saya-217adc2111232271fb5abc9281b6f59f.jpg"
 }
