@@ -33,7 +33,6 @@ const Layout = ({ location, title, children, className }) => {
   }
 
   let footerText;
-  console.log(Math.random() * (4));
   switch (Math.floor(Math.random() * (4))) {
     case 0:
       footerText = "built 2023"

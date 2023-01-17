@@ -4,14 +4,13 @@ import { graphql } from "gatsby"
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { Image, ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture } from "@react-three/drei"
+import { ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture } from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import halloween from "../videos/halloween.mp4"
 import halloweenPlaceholder from "../images/halloween.png";
-import saya from "../images/saya.jpg"
 
 
 function Model(props) {
