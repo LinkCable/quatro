@@ -567,12 +567,6 @@ a:focus {
   font-family: var(--fontFamily-serif);
 }
 
-canvas {
-  flex-grow: 1;
-  position: absolute !important;
-  top: 0;
-}
-
 
 .canvas .statement {
   flex-grow: 1;
