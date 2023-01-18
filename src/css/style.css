@@ -612,6 +612,18 @@ a:focus {
   overflow: hidden !important;
 }
 
+.fallback {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fallback h1 {
+  font-family: var(--accent-heading);
+}
+
 .not-found {
   height: 100vh;
   flex-flow: column;

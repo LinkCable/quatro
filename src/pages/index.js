@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as THREE from "three";
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -98,13 +98,22 @@ function Models(props) {
 }
 
 
+function LoadingState() {
+
+  return (
+    <div className="fallback">
+      <h1>Just a moment...</h1>
+    </div>
+  )
+}
+
 const Home = ({ data, location }) =>  {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle} className="home">
       <Seo title="Home" />
-      <React.Suspense fallback={null}>
+      <React.Suspense fallback={<LoadingState/>}>
         <Canvas className="canvas">
           <ScrollControls
             pages={6}
@@ -147,7 +156,6 @@ const Home = ({ data, location }) =>  {
                 <p>
                   But feel free to <a href="mailto:hi@philkt.me">drop me a line</a> if you're interested in chatting.
                 </p>
-                
               </div>
             </Scroll>
           </ScrollControls>

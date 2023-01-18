@@ -6,7 +6,7 @@ module.exports = {
       summary: `A designer`,
     },
     description: `A personal portfolio.`,
-    siteUrl: `https://www.gatsbyjs.com`,
+    siteUrl: `https://www.philkt.me`,
     social: {
       twitter: `philkt_`,
     },
@@ -129,13 +129,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Phil KT Personal Blog`,
+        name: `Phil KT Portfolio`,
         short_name: `philkt`,
         start_url: `/`,
         background_color: `#d1dce5`,
         theme_color: `#d1dce5`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -143,6 +143,6 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    //`gatsby-plugin-offline`,
   ],
 }

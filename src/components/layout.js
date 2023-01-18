@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import axios from "axios";
+
 import resume from "../pdfs/philkt-resume.pdf"
+
 
 const Layout = ({ location, title, children, className }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -32,19 +35,41 @@ const Layout = ({ location, title, children, className }) => {
     )
   }
 
-  let footerText;
+  
+
+  let [footerText, setFooter] = React.useState(0);
+  
   switch (Math.floor(Math.random() * (4))) {
     case 0:
-      footerText = "built 2023"
+      footerText = 'built 2023';
       break;
     case 1:
-      footerText = "artisanal craft code"
+      footerText = "you're consuming artisanal craft code";
       break;
-    case 2:
-      footerText = "test"
+    case 2:  
+      const query = `
+        query {
+          Page(page: 1, perPage: 1) {
+            mediaList(userId: 154089, type: MANGA, sort: UPDATED_TIME_DESC) {
+              id
+              media {
+                title {
+                  english
+                  userPreferred
+                }
+              }
+            }
+          }
+        }
+      `;
+      axios.post('https://graphql.anilist.co', {
+          query
+      }).then(function(response) {
+        setFooter("Last manga read: " + response.data.data.Page.mediaList[0].media.title.userPreferred)
+      }).catch(err => setFooter("this API is broken :("));
       break;
     case 3:
-      footerText = "mai tai"
+      footerText = "mai tais don't have pineapple juice";
       break;
     default:
   }
