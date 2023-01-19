@@ -426,6 +426,13 @@ a:focus {
   text-decoration: none;
 }
 
+.blog-post section code[class*="language-"] {
+  font-family: var(--fontFamily-monospace);
+  background: var(--color-text-light);
+  padding: 0.2em;
+  text-shadow: none;
+}
+
 /* Custom classes */
 
 .global-wrapper {
