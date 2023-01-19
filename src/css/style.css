@@ -264,6 +264,7 @@ footer {
   justify-content: center;
   bottom: var(--spacing-0);
   margin: var(--spacing-0) auto;
+  text-align: center;
 }
 
 hr {
@@ -523,15 +524,20 @@ a:focus {
 }
 
 .blog main {
-  justify-content: center;
+  justify-content: left;
+  max-width: var(--maxWidth-wrapper);
 }
 
 .blog .blog-entries {
   height: fit-content;
   list-style: none;
-  max-width: var(--maxWidth-wrapper);
+  width: 100%;
   margin-bottom: 0;
   padding: var(--spacing-10) var(--spacing-5) var(--spacing-0);
+}
+
+.blog-entries li {
+  list-style: none;
 }
 
 .blog-post {

@@ -1,21 +1,19 @@
 import * as React from "react"
-import * as THREE from "three";
-import { graphql } from "gatsby";
+import * as THREE from "three"
+import { graphql } from "gatsby"
 
-import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture } from "@react-three/drei"
+import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture, useGLTF } from "@react-three/drei"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import halloween from "../videos/halloween.mp4"
-import halloweenPlaceholder from "../images/halloween.png";
-
+import halloweenPlaceholder from "../images/halloween.png"
 
 function Model(props) {
   const ref = React.useRef()
-  const model = useLoader(GLTFLoader, props.modelFile)
+  const model = useGLTF(props.modelFile)
 
   let mixer
   if (model.animations.length) {
@@ -41,8 +39,7 @@ function Model(props) {
   )
 }
 
-
-function Phone(props) {
+function Video(props) {
   const texture = useVideoTexture(props.video);
   const fallbackTexture = useTexture(halloweenPlaceholder);
   const aspectRatio = 1846 / 896;
@@ -84,7 +81,7 @@ function Models(props) {
         modelFile="/3d/quest-pro.glb"
         position = {[width*2,.5,0]}
       />
-      <Phone
+      <Video
         videoPosition = {[width*3,.7,0]}
         video={halloween}
       />
@@ -172,7 +169,7 @@ const Home = ({ data, location }) =>  {
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={2}
+            intensity={1.8}
             shadow-bias={-0.0001}
           />
           <pointLight position={[0, 20, 50]} intensity={0.1}/>
