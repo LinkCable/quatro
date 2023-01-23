@@ -99,7 +99,7 @@ function LoadingState() {
   return (
     <div className="statement fallback">
       <h1>I am a product designer</h1>
-      <p>Passionate about emerging technologies and social dynamics. Test</p>
+      <p>Passionate about emerging technologies and social dynamics.</p>
     </div>
   )
 }
