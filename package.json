@@ -40,6 +40,7 @@
   "devDependencies": {
     "prettier": "2.7.1"
   },
+  "packageManager": "yarn@3.3.1",
   "homepage": "https://philkt.me",
   "keywords": [
     "portfolio"
@@ -57,6 +58,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
-  },
-  "packageManager": "yarn@3.3.1"
+  }
 }
