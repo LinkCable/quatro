@@ -37,7 +37,7 @@ const Layout = ({ location, title, children, className }) => {
 
   
 
-  let [footerText, setFooter] = React.useState("the end");
+  let [footerText, setFooter] = React.useState("your message is loading");
   
   switch (Math.floor(Math.random() * (4))) {
     case 0:

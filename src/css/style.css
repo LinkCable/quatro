@@ -513,6 +513,7 @@ a:focus {
 .bio p {
   margin-bottom: var(--spacing-0);
   font-weight: normal;
+  text-align: left;
 }
 
 .bio-avatar {
@@ -619,10 +620,6 @@ a:focus {
   font-family: var(--accent-heading);
   margin-bottom: var(--spacing-2);
   font-stretch: expanded;
-}
-
-.canvas > div > canvas + div {
-  overflow: hidden !important;
 }
 
 .fallback {
