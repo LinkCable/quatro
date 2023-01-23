@@ -40,7 +40,7 @@ function Model(props) {
 }
 
 function Video(props) {
-  const texture = useVideoTexture(props.video);
+  const texture = useVideoTexture(halloween);
   const fallbackTexture = useTexture(halloweenPlaceholder);
   const aspectRatio = 1846 / 896;
 
@@ -69,8 +69,7 @@ function Models(props) {
         scale = {.75}
         modelFile="/3d/shapes.glb"
         position = {[0,0,0]}
-      >
-      </Model>
+      />
       <Model
         scale = {.75}
         modelFile="/3d/meta.glb"
@@ -98,8 +97,9 @@ function Models(props) {
 function LoadingState() {
 
   return (
-    <div className="fallback">
-      <h1>Just a moment...</h1>
+    <div className="statement fallback">
+      <h1>I am a product designer</h1>
+      <p>Passionate about emerging technologies and social dynamics. Test</p>
     </div>
   )
 }
@@ -115,7 +115,7 @@ const Home = ({ data, location }) =>  {
           <ScrollControls
             pages={6}
             distance={1} // A factor that increases scroll bar travel (default: 1)
-            damping={4} // Friction, higher is faster (default: 4)
+            damping={.2} // Friction, higher is faster (default: 4)
             horizontal
           >
             <Scroll>              
@@ -133,13 +133,13 @@ const Home = ({ data, location }) =>  {
               <div className="statement vr" style={{left: "200vw"}}>
                 <h1>Right now I focus on privacy in VR</h1>
                 <p>
-                  I've helped launch <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+                  I work across the ecosystem and have launched <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
                 </p>
               </div>
               <div className="statement fb" style ={{left: "300vw"}}>
                 <h1>I used to work on Facebook</h1>
                 <p>
-                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, working together with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
+                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
                 </p>
               </div>
               <div className="statement others" style ={{left: "400vw"}}>
@@ -156,8 +156,7 @@ const Home = ({ data, location }) =>  {
               </div>
             </Scroll>
           </ScrollControls>
-          
-          
+
           <PerspectiveCamera makeDefault position={[0,0,5]}/>
 
           <directionalLight

@@ -426,12 +426,6 @@ a:focus {
   text-decoration: none;
 }
 
-.blog-post section code[class*="language-"] {
-  font-family: var(--fontFamily-monospace);
-  background: var(--color-text-light);
-  padding: 0.2em;
-  text-shadow: none;
-}
 
 /* Custom classes */
 
@@ -568,6 +562,13 @@ a:focus {
   margin: var(--spacing-0);
 }
 
+.blog-post section code[class*="language-"] {
+  font-family: var(--fontFamily-monospace);
+  background: var(--color-text-light);
+  padding: 0.2em;
+  text-shadow: none;
+}
+
 .blog-post footer {
   position: relative;
   padding: var(--spacing-4) 0;
@@ -581,7 +582,7 @@ a:focus {
 }
 
 
-.canvas .statement {
+.statement {
   flex-grow: 1;
   display: flex;
   width: 100vw;

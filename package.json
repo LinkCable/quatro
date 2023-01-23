@@ -35,9 +35,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-horizontal-vertical": "^1.0.3",
-    "react-is-scrolling": "^1.0.1",
-    "react-use-gesture": "^9.1.3",
     "three": "^0.146.0"
   },
   "devDependencies": {
@@ -45,13 +42,13 @@
   },
   "homepage": "https://philkt.me",
   "keywords": [
-    "gatsby"
+    "portfolio"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/LinkCable/quattro"
   },
   "scripts": {
     "build": "gatsby build",
@@ -60,5 +57,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
