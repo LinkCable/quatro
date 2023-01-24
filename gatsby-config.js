@@ -10,6 +10,7 @@ module.exports = {
     social: {
       twitter: `philkt_`,
     },
+    image: `${__dirname}/static/preview.png`
   },
   plugins: [
     `gatsby-plugin-image`,
