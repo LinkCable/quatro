@@ -5,7 +5,7 @@ description: Some research from back in grad school exploring effective Dribbble
   was for designers. A fun time capsule of when it was the place to go for
   inspiration.
 ---
-![Dribbble icon mocked as a detective](/images/uploads/1_s9errcqpb-ybttvk_jqhlw.webp)
+![Dribbble icon mocked as a detective](/images/uploads/blog/a-study-in-pink/dribbble.webp)
 
 \[﻿Originally published on Medium in 2017, as part of a class that was focused on online communities]
 
@@ -32,7 +32,7 @@ The research consisted of 11 semi-structured interviews with Dribbble users from
 
 Afterwards, we codified and affinity mapped our data to draw out key themes and topics that arose from the interviews.
 
-![An email from Dribbble telling us to stop emailing designers through the Hire Me feature](/images/uploads/1_doptmmgbvzfssg9l6t5ova.webp "We also got in some trouble along the way 😅")
+![An email from Dribbble telling us to stop emailing designers through the Hire Me feature](/images/uploads/blog/a-study-in-pink/email.webp "We also got in some trouble along the way 😅")
 
 ### **How Would You Describe the Dribbble Community?**
 
@@ -44,7 +44,7 @@ When designers go on Dribbble, many are seeking feedback from fellow designers o
 
 The guidelines go on to say “If you add value to others’ work, they’re more likely to be interested in yours.” *However, most comments on Dribbble do not meet any bar of criticism whatsoever.* Typically when visiting a post, comments will consist of a variation of “Great shot!” or “Nice job!”
 
-![Image of comments with people saying "Nice job" repeatedly](/images/uploads/1_4-mjtqqeear2zh-cwsu_pa.webp "The typical Dribbble comments section")
+![Image of comments with people saying "Nice job" repeatedly](/images/uploads/blog/a-study-in-pink/nice-job.webp "The typical Dribbble comments section")
 
 These comments unintentionally create a standard that feedback is only supposed to be positive and make critique less likely due to the “feel good” nature of the commentary. Due to this norm established by the Dribbble community **it can be hard to break the established convention** **to point out a design could be better** or has failings in certain areas.
 
@@ -78,7 +78,7 @@ To no one’s surprise, “Inspiration” ranks as the top reason our interviewe
 
 Compared to its competitors, designers see Dribbble as a more of a “one-off” platform, whereas [Behance](https://behance.net/) is more a place to post case studies and describe an entire process. [Ello](https://ello.co/) was also brought up, as a “raw”, “vulnerable” and “free” platform compared to Dribbble where shots require more curation and self-selection. **If Ello is Snapchat, then Behance is Flickr and Dribbble is Instagram.**
 
-![Ello, Dribbble, and Behance logos](/images/uploads/1_wggx8yhkoi1kwq_hcnvkoa.webp "From raw to polished designs")
+![Ello, Dribbble, and Behance logos](/images/uploads/blog/a-study-in-pink/spectrum.webp "From raw to polished designs")
 
 > *“When I look at something really really detailed… I’m like ‘Geez I have no idea how they did that.’ And that’s really inspiring.”*
 
@@ -104,7 +104,7 @@ Once people receive an invite to give out, they have a decision to make about wh
 
 This was surprising given that *who invited who* isn’t communicated in Dribbble’s UI. Sometimes a new user will thank whoever gave them an invite (which seems to be a somewhat common practice), but finding out who invited who to the community can be a difficult if not sometimes impossible task.
 
-![An image of a dribbble invite solicitation](/images/uploads/1_aqe1vghxyw0x_nrizhi_ya.webp "Dribbblers like to review portfolios before giving out invites (Shot by Nancy Nguyen)")
+![An image of a dribbble invite solicitation](/images/uploads/blog/a-study-in-pink/invite.webp "Dribbblers like to review portfolios before giving out invites (Shot by Nancy Nguyen)")
 
 ### **Conclusion**
 
