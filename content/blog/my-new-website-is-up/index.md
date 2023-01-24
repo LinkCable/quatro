@@ -13,6 +13,6 @@ T﻿he thing that took the longest and most number of attempts was actually gett
 
 I﻿ then downloaded/created my own 3D models to put over the site. Shout out to Elin and Marcus Kane from Sketchfab for the [Meta](https://sketchfab.com/3d-models/meta-logo-913b2a99b7404b80b75a8d3927ce20d0) and [Quest Pro](https://sketchfab.com/3d-models/project-cambria-mockup-ce29a185c5c94e2684315e73c37513ce) models. Had to bust out my Blender skills to clean up the models and also make some of my own. I also leveraged the new [Bezel](https://www.bezel.it/) website which is like Figma but for 3D (started by a former co-worker!)
 
-S﻿ome irritating bugs that still exist is that for some reason the home page does not work on iOS at all! The `canvas` is set to `display: none` just on iOS which makes no sense to me, so hopefully I'll be able to figure it out soon.
+S﻿ome irritating bugs that still exist is that for some reason the home page does not work on iOS at all! The `canvas` is set to `display: none` just on iOS which makes no sense to me, so hopefully I'll be able to figure it out soon. EDIT: [the fix is in](https://github.com/pmndrs/react-three-fiber/discussions/2727#discussioncomment-4753446)
 
 But, 1 year and a half later, on 1/18/2023 my site is now live!
