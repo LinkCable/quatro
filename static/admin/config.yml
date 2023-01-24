@@ -3,8 +3,7 @@ backend:
   branch: main
 
 media_folder: static/images/uploads
-public_folder: /images/uploads
-
+public_folder: 
 publish_mode: editorial_workflow
 
 collections:
@@ -13,8 +12,8 @@ collections:
     folder: 'content/blog'
     create: true
     slug: 'index'
-    media_folder: ''
-    public_folder: ''
+    media_folder: 'static/images/uploads'
+    public_folder: '/images/uploads'
     path: '{{title}}/index'
     editor:
       preview: false
