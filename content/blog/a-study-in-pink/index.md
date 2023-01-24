@@ -78,7 +78,7 @@ To no one’s surprise, “Inspiration” ranks as the top reason our interviewe
 
 Compared to its competitors, designers see Dribbble as a more of a “one-off” platform, whereas [Behance](https://behance.net/) is more a place to post case studies and describe an entire process. [Ello](https://ello.co/) was also brought up, as a “raw”, “vulnerable” and “free” platform compared to Dribbble where shots require more curation and self-selection. **If Ello is Snapchat, then Behance is Flickr and Dribbble is Instagram.**
 
-![Ello, Dribbble, and Behance logos]( "From raw to polished designs")
+![Ello, Dribbble, and Behance logos](/images/uploads/blog/a-study-in-pink/spectrum.webp "From raw to polished designs")
 
 > *“When I look at something really really detailed… I’m like ‘Geez I have no idea how they did that.’ And that’s really inspiring.”*
 
@@ -104,7 +104,7 @@ Once people receive an invite to give out, they have a decision to make about wh
 
 This was surprising given that *who invited who* isn’t communicated in Dribbble’s UI. Sometimes a new user will thank whoever gave them an invite (which seems to be a somewhat common practice), but finding out who invited who to the community can be a difficult if not sometimes impossible task.
 
-![An image of a dribbble invite solicitation]( "Dribbblers like to review portfolios before giving out invites (Shot by Nancy Nguyen)")
+![An image of a dribbble invite solicitation](/images/uploads/blog/a-study-in-pink/invite.webp "Dribbblers like to review portfolios before giving out invites (Shot by Nancy Nguyen)")
 
 ### **Conclusion**
 
