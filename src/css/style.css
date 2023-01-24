@@ -591,6 +591,12 @@ a:focus {
   color: var(--color-text);
 }
 
+.blog-post img {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+}
+
 .blog-post hr {
   background: var(--color-text);
 }
