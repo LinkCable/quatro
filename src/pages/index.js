@@ -86,7 +86,7 @@ function Models(props) {
       />
       <Model
         scale = {.8}
-        modelFile="/3d/misc-portfolio.glb"
+        modelFile="/3d/misc.glb"
         position = {[width*4,.5,0]}
       />
     </>
@@ -139,13 +139,13 @@ const Home = ({ data, location }) =>  {
               <div className="statement fb" style ={{left: "300vw"}}>
                 <h1>I used to work on Facebook</h1>
                 <p>
-                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>.
+                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>. I worked on discovery, consumption, and creation experiences.
                 </p>
               </div>
               <div className="statement others" style ={{left: "400vw"}}>
-                <h1>I sometimes design other stuff</h1>
+                <h1>Sometimes I do other kinds of design</h1>
                 <p>
-                  Like <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
+                  Like making <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
                 </p>
               </div>
               <div className="statement end" style ={{left: "500vw"}}>
@@ -159,19 +159,20 @@ const Home = ({ data, location }) =>  {
 
           <PerspectiveCamera makeDefault position={[0,0,5]}/>
 
+          
           <directionalLight
             castShadow
-            position={[10, 20, 15]}
+            position={[0, 20, 15]}
             shadow-camera-right={8}
             shadow-camera-top={8}
             shadow-camera-left={-8}
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={1.8}
+            intensity={1}
             shadow-bias={-0.0001}
           />
-          <pointLight position={[0, 20, 50]} intensity={0.1}/>
+          <ambientLight intensity={0.7} />
 
           
         </Canvas>
