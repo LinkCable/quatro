@@ -5,7 +5,7 @@ description: Some research from back in grad school exploring effective Dribbble
   was for designers. A fun time capsule of when it was the place to go for
   inspiration.
 ---
-![Dribbble icon mocked as a detective]()
+![Dribbble icon mocked as a detective](/images/uploads/1_s9errcqpb-ybttvk_jqhlw.webp)
 
 \[﻿Originally published on Medium in 2017, as part of a class that was focused on online communities]
 
