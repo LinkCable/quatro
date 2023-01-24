@@ -5,7 +5,7 @@ description: Some research from back in grad school exploring effective Dribbble
   was for designers. A fun time capsule of when it was the place to go for
   inspiration.
 ---
-![Dribbble icon mocked as a detective](//images/uploads/blog/a-study-in-pink/dribbble.webp)
+![Dribbble icon mocked as a detective](/images/uploads/blog/a-study-in-pink/dribbble.webp)
 
 \[﻿Originally published on Medium in 2017, as part of a class that was focused on online communities]
 
@@ -32,7 +32,7 @@ The research consisted of 11 semi-structured interviews with Dribbble users from
 
 Afterwards, we codified and affinity mapped our data to draw out key themes and topics that arose from the interviews.
 
-![An email from Dribbble telling us to stop emailing designers through the Hire Me feature]( "We also got in some trouble along the way 😅")
+![An email from Dribbble telling us to stop emailing designers through the Hire Me feature](/images/uploads/blog/a-study-in-pink/email.webp "We also got in some trouble along the way 😅")
 
 ### **How Would You Describe the Dribbble Community?**
 
@@ -44,7 +44,7 @@ When designers go on Dribbble, many are seeking feedback from fellow designers o
 
 The guidelines go on to say “If you add value to others’ work, they’re more likely to be interested in yours.” *However, most comments on Dribbble do not meet any bar of criticism whatsoever.* Typically when visiting a post, comments will consist of a variation of “Great shot!” or “Nice job!”
 
-![Image of comments with people saying "Nice job" repeatedly]( "The typical Dribbble comments section")
+![Image of comments with people saying "Nice job" repeatedly](/images/uploads/blog/a-study-in-pink/nice-job.webp "The typical Dribbble comments section")
 
 These comments unintentionally create a standard that feedback is only supposed to be positive and make critique less likely due to the “feel good” nature of the commentary. Due to this norm established by the Dribbble community **it can be hard to break the established convention** **to point out a design could be better** or has failings in certain areas.
 
