@@ -13,8 +13,8 @@ collections:
     folder: 'content/blog'
     create: true
     slug: 'index'
-    media_folder: '/{{media_folder}}/blog'
-    public_folder: '/{{public_folder}}/blog'
+    media_folder: '/{{media_folder}}/blog/{{title}}'
+    public_folder: '/{{public_folder}}/blog/{{title}}'
     path: '{{title}}/index'
     editor:
       preview: false
