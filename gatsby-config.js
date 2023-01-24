@@ -10,7 +10,7 @@ module.exports = {
     social: {
       twitter: `philkt_`,
     },
-    image: `${__dirname}/static/preview.png`
+    image: `https://www.philkt.me/static/open-graph-image.png`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -125,6 +125,11 @@ module.exports = {
             output: "/rss.xml",
           },
         ],
+        defaults: {
+          quality: 70,
+          formats: ['auto', 'webp', 'avif'],
+          placeholder: 'tracedSVG',
+        },
       },
     },
     {

@@ -38,7 +38,6 @@ const Seo = ({ description, lang, meta, title, image }) => {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      image={image}
       meta={[
         {
           name: `description`,
@@ -57,7 +56,7 @@ const Seo = ({ description, lang, meta, title, image }) => {
           content: `website`,
         },
         {
-          property: `og:image`,
+          name: 'og:image',
           content: image,
         },
         {
@@ -92,7 +91,7 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  image: PropTypes.string,
+  image: PropTypes.string
 }
 
 export default Seo
