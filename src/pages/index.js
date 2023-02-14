@@ -99,7 +99,7 @@ function LoadingState() {
   return (
     <div className="statement fallback">
       <h1>I am a product designer</h1>
-      <p>Passionate about emerging technologies and social dynamics.</p>
+      <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
     </div>
   )
 }
@@ -124,7 +124,7 @@ const Home = ({ data, location }) =>  {
             <Scroll html>
               <div className="statement intro">
                 <h1>I am a product designer</h1>
-                <p>Passionate about emerging technologies and social dynamics.</p>
+                <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
               </div>
               <div className="statement meta" style={{left: "100vw"}}>
                 <h1>I currently do my thing at Meta</h1>
