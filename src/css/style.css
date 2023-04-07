@@ -253,6 +253,7 @@ html, body {
 
 footer {
   font-family: var(--fontFamily-monospace);
+  font-style: normal;
   font-style: oblique;
   font-weight: bold;
   padding: var(--spacing-5);

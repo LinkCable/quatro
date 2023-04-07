@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/portfolio/*"
+  status = 200
+  force = true
+  conditions = {Role = ["portfolioAccess"]}
+
+[[redirects]]
+ from = "/portfolio/*"
+ to = "/.netlify/functions/redirect"
+ status = 200
+ force = true
+
+[functions]
+  directory = "functions"

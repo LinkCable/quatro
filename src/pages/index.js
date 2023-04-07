@@ -70,24 +70,26 @@ function Models(props) {
         modelFile="/3d/shapes.glb"
         position = {[0,0,0]}
       />
+      {/*
       <Model
-        scale = {.25}
+        scale = {.75}
         modelFile="/3d/meta.glb"
         position = {[0,height*-1,0]}
       />
+      */}
       <Model
         scale = {.35}
         modelFile="/3d/quest-pro.glb"
-        position = {[0,height*-1,0]}
+        position = {[0,height*-0.9,0]}
       />
       <Video
-        videoPosition = {[0,height*-2.9,0]}
+        videoPosition = {[0,height*-1.9,0]}
         video={halloween}
       />
       <Model
         scale = {.8}
         modelFile="/3d/misc.glb"
-        position = {[0,height*-4,0]}
+        position = {[0,height*-3,0]}
       />
     </>
   )
@@ -113,7 +115,7 @@ const Home = ({ data, location }) =>  {
       <React.Suspense fallback={<LoadingState/>}>
         <Canvas className="canvas">
           <ScrollControls
-            pages={6}
+            pages={5}
             distance={1} // A factor that increases scroll bar travel (default: 1)
             damping={.2} // Friction, higher is faster (default: 4)
           >
@@ -125,29 +127,31 @@ const Home = ({ data, location }) =>  {
                 <h1>I am a product designer</h1>
                 <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
               </div>
+              {/*
               <div className="statement meta" style={{top: "100vh"}}>
                 <h1>I currently do my thing at Meta</h1>
                 <p>Been designing here 4 years.</p>
               </div>
-              <div className="statement vr" style={{top: "200vh"}}>
-                <h1>Right now I focus on privacy in VR</h1>
+              */}
+              <div className="statement vr" style={{top: "100vh"}}>
+                <h1>I currently work on privacy for the Meta Quest</h1>
                 <p>
-                  I work across the ecosystem and have launched <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+                  I work across the VR ecosystem and have launched <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
                 </p>
               </div>
-              <div className="statement fb" style ={{top: "300vh"}}>
+              <div className="statement fb" style ={{top: "202vh"}}>
                 <h1>I used to work on Facebook</h1>
                 <p>
                   I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>. I worked on discovery, consumption, and creation experiences.
                 </p>
               </div>
-              <div className="statement others" style ={{top: "400vh"}}>
+              <div className="statement others" style ={{top: "310vh"}}>
                 <h1>Sometimes I do other kinds of design</h1>
                 <p>
                   Like making <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
                 </p>
               </div>
-              <div className="statement end" style ={{top: "500vh"}}>
+              <div className="statement end" style ={{top: "400vh"}}>
                 <h1>That's all for now</h1>
                 <p>
                   But feel free to <a href="mailto:hi@philkt.me">drop me a line</a> if you're interested in chatting.
