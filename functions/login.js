@@ -26,7 +26,7 @@ exports.handler = async function (event, context) {
       headers: {
         'Set-Cookie': `nf_jwt=${access_token}; Path=/; HttpOnly; Secure`,
         'Cache-Control': 'no-cache',
-        Location: redirect || '/pro/',
+        Location: redirect || '/work/',
       },
     };
   } catch (error) {
