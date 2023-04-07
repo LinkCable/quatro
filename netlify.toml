@@ -1,11 +1,11 @@
 [[redirects]]
-  from = "/portfolio/*"
+  from = "/work/*"
   status = 200
   force = true
   conditions = {Role = ["portfolioAccess"]}
 
 [[redirects]]
- from = "/portfolio/*"
+ from = "/work/*"
  to = "/.netlify/functions/redirect"
  status = 200
  force = true

@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as THREE from "three"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { ScrollControls, Scroll, PerspectiveCamera, useVideoTexture, useTexture, useGLTF } from "@react-three/drei"

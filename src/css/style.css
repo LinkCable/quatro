@@ -666,6 +666,58 @@ a:focus {
   font-family: var(--accent-heading);
 }
 
+.login form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .password-entry {
+  margin-bottom: var(--spacing-4);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.login label {
+  font-family: var(--fontFamily-serif);
+}
+
+.login input {
+  margin: var(--spacing-2) 0 0;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.login input:focus { 
+  background-color: var(--color-header-shadow);
+  outline: none;
+}
+
+.login form button {
+  background-color: transparent;
+  border: solid .1rem var(--color-orange);
+  padding: var(--spacing-2);
+  font-family: var(--fontFamily-monospace);
+  -webkit-transition: background .4s; /* For Safari 3.0 to 6.0 */
+  transition: background .4s; /* For modern browsers */
+}
+
+.login form button:hover{
+  cursor: pointer;
+  background-color: var(--color-orange);
+  color: var(--color-text-light);
+}
+
+.work {
+  height: 100vh;
+  flex-flow: column;
+  align-items: center;
+}
+
 .not-found {
   height: 100vh;
   flex-flow: column;

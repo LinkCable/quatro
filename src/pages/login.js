@@ -8,12 +8,14 @@ const Login = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle} className="not-found">
+    <Layout location={location} title={siteTitle} className="login">
       <Seo title="Login" />
       <form action="/.netlify/functions/login" method="POST">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Get access</button>
+        <div className="password-entry">
+            <label for="password">Got a password?</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <button type="submit">Let me in</button>
       </form>
     </Layout>
   )
