@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as THREE from "three"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
