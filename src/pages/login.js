@@ -57,10 +57,21 @@ const Login = ({ data, location }) => {
           shadow-camera-bottom={-8}
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
-          intensity={1}
+          intensity={2}
+          shadow-bias={1}
+        />
+        <directionalLight
+          castShadow
+          position={[2, 0, -2]}
+          shadow-camera-right={-2}
+          shadow-camera-top={0}
+          shadow-camera-left={2}
+          shadow-camera-bottom={4}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          intensity={2}
           shadow-bias={-0.0001}
         />
-        <ambientLight intensity={1} />
         <Html center occlude position={[0, -.5, 0]}>
           <form action="/.netlify/functions/login" method="POST">
             <div className="password-entry">

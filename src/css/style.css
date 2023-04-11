@@ -690,26 +690,23 @@ a:focus {
   border: none;
   border-radius: 4px;
   text-align: center;
+  padding: var(--spacing-1);
 }
 
 .login input:focus { 
-  background-color: var(--color-header-shadow);
   outline: none;
 }
 
 .login form button {
-  background-color: transparent;
-  border: solid .1rem var(--color-orange);
+  background-color: var(--color-orange);
+  color: var(--color-text-light);
   padding: var(--spacing-2);
   font-family: var(--fontFamily-monospace);
-  -webkit-transition: background .4s; /* For Safari 3.0 to 6.0 */
-  transition: background .4s; /* For modern browsers */
 }
 
 .login form button:hover{
   cursor: pointer;
-  background-color: var(--color-orange);
-  color: var(--color-text-light);
+
 }
 
 .work {

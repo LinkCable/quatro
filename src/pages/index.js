@@ -67,17 +67,10 @@ function Models(props) {
   return (
     <>
       <Model
-        scale = {.75}
-        modelFile="/3d/shapes.glb"
-        position = {[0,0,0]}
+        scale = {.6}
+        modelFile="/3d/intro.glb"
+        position = {[0,.55,0]}
       />
-      {/*
-      <Model
-        scale = {.75}
-        modelFile="/3d/meta.glb"
-        position = {[0,height*-1,0]}
-      />
-      */}
       <Model
         scale = {.35}
         modelFile="/3d/quest-pro.glb"
@@ -91,6 +84,11 @@ function Models(props) {
         scale = {.8}
         modelFile="/3d/misc.glb"
         position = {[0,height*-3,0]}
+      />
+       <Model
+        scale = {.5}
+        modelFile="/3d/thumbs-up.glb"
+        position = {[0,height*-3.9,0]}
       />
     </>
   )
@@ -124,16 +122,10 @@ const Home = ({ data, location }) =>  {
               <Models/>
             </Scroll>
             <Scroll html>
-              <div className="statement intro">
+              <div className="statement intro" style={{top: "13vh"}}>
                 <h1>I am a product designer</h1>
                 <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
               </div>
-              {/*
-              <div className="statement meta" style={{top: "100vh"}}>
-                <h1>I currently do my thing at Meta</h1>
-                <p>Been designing here 4 years.</p>
-              </div>
-              */}
               <div className="statement vr" style={{top: "100vh"}}>
                 <h1>I currently work on privacy for the Meta Quest</h1>
                 <p>
@@ -152,7 +144,7 @@ const Home = ({ data, location }) =>  {
                   Like making <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
                 </p>
               </div>
-              <div className="statement end" style ={{top: "400vh"}}>
+              <div className="statement end" style ={{top: "410vh"}}>
                 <h1>That's all for now</h1>
                 <p>
                   But feel free to <a href="mailto:hi@philkt.me">drop me a line</a> if you're interested in chatting.
