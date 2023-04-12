@@ -68,7 +68,7 @@ function Models(props) {
     <>
       <Model
         scale = {.6}
-        modelFile="/3d/intro.glb"
+        modelFile="/3d/intro-anim.glb"
         position = {[0,.55,0]}
       />
       <Model
