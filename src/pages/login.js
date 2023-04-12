@@ -74,11 +74,11 @@ const Login = ({ data, location }) => {
         />
         <Html center occlude position={[0, -.5, 0]}>
           <form action="/.netlify/functions/login" method="POST">
-            <div className="password-entry">
               <label for="password">Got a password?</label>
-              <input type="password" name="password" id="password" />
-            </div>
-            <button type="submit">Let me in</button>
+              <div className="password-submit">
+                <input type="password" name="password" id="password" />
+                <button type="submit">Go</button>
+              </div>
           </form>
         </Html>
         </Canvas>

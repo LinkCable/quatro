@@ -672,27 +672,33 @@ a:focus {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: var(--spacing-4);
+  text-align: center;
 }
 
-.login .password-entry {
-  margin-bottom: var(--spacing-4);
+.login .password-submit{
   display: flex;
-  flex-flow: column;
-  align-items: center;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-4) 0 0;
+    box-shadow: -3px 0 0 0 var(--color-heading),
+    3px 0 0 0 var(--color-heading),
+    0 -3px 0 0 var(--color-heading),
+    0 3px 0 0 var(--color-heading);
 }
 
 .login label {
   font-family: var(--fontFamily-serif);
-  font-size: var(--fontSize-1);
+  font-size: var(--fontSize-2);
 }
 
 .login input {
-  margin: var(--spacing-2) 0 0;
   background: #f1f1f1;
   border: none;
   border-radius: 2px;
-  text-align: center;
-  padding: var(--spacing-1);
+  text-align: left;
+  padding: var(--spacing-1) var(--spacing-2);
+  height: 100%;
 }
 
 .login input:focus { 
@@ -705,10 +711,7 @@ a:focus {
   padding: var(--spacing-2);
   border: none;
   font-family: var(--fontFamily-monospace);
-  box-shadow:   -3px 0 0 0 var(--color-heading),
-                 3px 0 0 0 var(--color-heading),
-                 0 -3px 0 0 var(--color-heading),
-                 0 3px 0 0 var(--color-heading);
+  
 }
 
 .login form button:hover{
@@ -716,7 +719,7 @@ a:focus {
 }
 
 .login form button:active {
-  transform: scale(0.95);
+  font-weight: bold;
 }
 
 .work {
