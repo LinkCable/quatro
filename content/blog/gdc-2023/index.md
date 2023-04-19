@@ -3,8 +3,6 @@ title: GDC 2023
 date: 2023-04-19T01:44:46.657Z
 description: Observations from GDC 2023
 ---
-# Highlights from GDC 2023
-
 A few weeks ago I had the privilege of attending GDC to see industry talks and meet developers building on the Quest platform.
 
 Here are some of the highlights I saw during my time there and what I took away from them:
