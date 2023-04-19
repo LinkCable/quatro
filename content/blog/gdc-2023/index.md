@@ -3,6 +3,8 @@ title: GDC 2023
 date: 2023-04-19T01:44:46.657Z
 description: Observations from GDC 2023
 ---
+# Highlights from GDC 2023
+
 A few weeks ago I had the privilege of attending GDC to see industry talks and meet developers building on the Quest platform.
 
 Here are some of the highlights I saw during my time there and what I took away from them:
@@ -23,7 +25,7 @@ The reason for their high engagement seemed due to their mechanics, which were s
 * Built in Twitter sharing of photos from the camera tool they provided in VR
 * It's plain cool to stand under a Gundam or next to Sephiroth in life-scale immersion, and they received the assets right from the game developers themselves so they were all high quality models
 
-![image](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338495687_475655424687527_2858391361016511763_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=abc084&_nc_ohc=5AhKpUblZFYAX_z-NdH&_nc_ht=scontent-sea1-1.xx&uss=0b8e455f03d76b1d&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=644365FA&oh=00_AfCiNXgUdGzgIU2jNBWr2vnjBRsoG4wqSfU_ct7bZX8oWA&oe=643F4876)
+![screenshot of avatar customization](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338495687_475655424687527_2858391361016511763_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=abc084&_nc_ohc=5AhKpUblZFYAX_z-NdH&_nc_ht=scontent-sea1-1.xx&uss=0b8e455f03d76b1d&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=644365FA&oh=00_AfCiNXgUdGzgIU2jNBWr2vnjBRsoG4wqSfU_ct7bZX8oWA&oe=643F4876 "Sonic avatar")
 
 *The avatar customization system*
 
@@ -41,7 +43,7 @@ They provided examples of plays — best practices for designers, for different 
 
 One example we looked at was voice chat and methods to mitigate abuse of it, I thought there were some interesting examples here like time banks so people can only talk for so long, or requiring push to talk to each communication has to be more intentional and thoughtful. These plays also aren't exclusive and can be mixed and matched as shown in the Pro Tips section on the right.
 
-![image](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338505057_6056966727757540_542048649174658463_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=abc084&_nc_ohc=lREUvRSBZCMAX9x7IO7&_nc_ht=scontent-sea1-1.xx&uss=754eb50d415809f8&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=64443EF2&oh=00_AfA9aY17_MTOtDjB2-rxyiB_PQ-KzA4L_8RSjZRhPnuvmQ&oe=643F483E)
+![a screenshot of a radial menu with different plays to address voice chat](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338505057_6056966727757540_542048649174658463_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=abc084&_nc_ohc=lREUvRSBZCMAX9x7IO7&_nc_ht=scontent-sea1-1.xx&uss=754eb50d415809f8&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=64443EF2&oh=00_AfA9aY17_MTOtDjB2-rxyiB_PQ-KzA4L_8RSjZRhPnuvmQ&oe=643F483E "Playbook image")
 
 *An example playbook for mitigating voice chat*
 
@@ -86,7 +88,7 @@ Mark also provided some nice framing on when you receive negative player feedbac
 
 Mark mentioned that you should challenge yourself to create drastic solution for the feedback, which even if it won't ship will help unblock your design process or might discover a new direction, which I really appreciated.
 
-![image](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338399245_618500893015108_6092193186513470372_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=abc084&_nc_ohc=WV760rHTsysAX8v9OPT&_nc_ht=scontent-sea1-1.xx&uss=c198d954cfbefbb0&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=64450C84&oh=00_AfBvA6TveQr6kauGwFmpjNBU1ubMgK4rqId9IMCuW4vhOQ&oe=643F4858)
+![an image of user feedback on a Rachet level](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338399245_618500893015108_6092193186513470372_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=abc084&_nc_ohc=WV760rHTsysAX8v9OPT&_nc_ht=scontent-sea1-1.xx&uss=c198d954cfbefbb0&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=64450C84&oh=00_AfBvA6TveQr6kauGwFmpjNBU1ubMgK4rqId9IMCuW4vhOQ&oe=643F4858 "rachet feedback")
 
 *Breaking down feedback*
 
@@ -104,7 +106,7 @@ One other nice design touch I could see be useful for accessibility is how they 
 
 Of course I also took the chance to walk around the show floor and chat with developers that I saw using Quests just to hear about their developer experience.
 
-![image](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/339333235_1461221881348191_2635348380376167659_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=abc084&_nc_ohc=mHam_fJFDIYAX9AbNMX&_nc_ht=scontent-sea1-1.xx&uss=bf4f17eb788b8c7d&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=6443DAB5&oh=00_AfC9xoWz87zSztcYBeTBq5kfwQmAcfpcD-gwNkwY-2L1zA&oe=643F4865)
+![an image of meta's booth](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/339333235_1461221881348191_2635348380376167659_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=abc084&_nc_ohc=mHam_fJFDIYAX9AbNMX&_nc_ht=scontent-sea1-1.xx&uss=bf4f17eb788b8c7d&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=6443DAB5&oh=00_AfC9xoWz87zSztcYBeTBq5kfwQmAcfpcD-gwNkwY-2L1zA&oe=643F4865 "Meta booth")
 
 *The Meta Booth on the floor*
 
@@ -134,18 +136,18 @@ I had to take a chance and evaluate the competition as well, and tried out an be
 
 These align very similarly to the ET use cases we outlined to users on Quest Pro: social expression, input, and foveated rendering. It's good to see that competitors are landing on similar cases.
 
-![image](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338728735_183339907838594_2681161907476125090_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=abc084&_nc_ohc=vj-kDG_l-t0AX9Tl__6&_nc_ht=scontent-sea1-1.xx&uss=23b141702edac70f&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=6444AC14&oh=00_AfCl_RObyNA2zpRidXOj9lRVaMxBHx7VdflqCu-l8gyEsg&oe=643F4864)
+![a picture of Playstation's orthofit for VR](https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/338728735_183339907838594_2681161907476125090_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=abc084&_nc_ohc=vj-kDG_l-t0AX9Tl__6&_nc_ht=scontent-sea1-1.xx&uss=23b141702edac70f&odm=ZmIud29ya3BsYWNlLmNvbQ&oe2=6444AC14&oh=00_AfCl_RObyNA2zpRidXOj9lRVaMxBHx7VdflqCu-l8gyEsg&oe=643F4864 "PSVR orthofit")
 
 *Orthofit experience on PSVR2*
 
 For their demo they had the user look at the radio to turn it on and change the channel, which was a fun input experience, and then they also had a TV demo with 3 movies playing at the same time, and looking at one TV would amplify the volume
 
-A user could then pick one of three more involved demos, I selected the input demo where I was given a keyboard that used eye input to type. Honestly I found it tiring and not a good use of eye input, as your eyes are constantly darting around the type in the letters and you quickly get fatigued, perhaps if they had a better key layout or mechanism they could reduce the eye strain they were introducing but it definitely need some work to optimize for common letters to reduce strain.
+A user could then pick one of three more involved demos, I selected the input demo where I was given a keyboard that used eye input to type. Honestly I found it tiring and not a great use of eye input, as your eyes are constantly darting around the type in the letters and you quickly get fatigued. Perhaps if they had a better key layout or mechanism they could reduce the eye strain they were introducing but it definitely need some work to optimize for common letters to reduce friction.
 
-I did wonder as I did the demos and such, since they were all set in real world examples (a bar, a party) if this some sort of hint of them thinking around AR use cases...
+I did wonder as I did the demos and such, since they were all set in real world examples (a bar, a party) if this some sort of hint of them thinking around AR use cases.
 
 ## Conclusion
 
 Overall I found GDC a highly relevant conference to attend as a VR designer. Although the talks focus on games and game design, many lessons and takeaways can directly translate to the UX design practice of designing in multiplayer and 3D spaces. Game designers have been doing similar work for a long time and have a rich pool of knowledge and inspiration to draw from.
 
-It's also fantastic to see what developers are building on the VR platform and is a reminder of the incredible things possible on Quest by the ingenuity of our developer community.
+It's also fantastic to see what developers are building on the VR platform and is a reminder of the incredible things possible on Quest by the ingenuity of the developer community.
