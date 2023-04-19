@@ -29,7 +29,7 @@ The reason for their high engagement seemed due to their mechanics, which were s
 
 *The avatar customization system*
 
-They'll be doing a 3rd iteration of the VR experience this September, so keep an eye out on the App Lab to try it out! The event will run for 11 days.
+They'll be doing a 3rd iteration of the VR experience this September, so keep an eye out on the Quest App Lab to try it out! The event will run for 11 days.
 
 [Link to the session](https://l.workplace.com/l.php?u=https%3A%2F%2Fschedule.gdconf.com%2Fsession%2Ftokyo-game-show-vr-japanese-metaverse-market-and-successful-game-promotionbrand-marketing-at-first-ever-virtual-reality-game-show-in-history-presented-by-dentsu-and-ambr%2F894480&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
@@ -47,7 +47,7 @@ One example we looked at was voice chat and methods to mitigate abuse of it, I t
 
 *An example playbook for mitigating voice chat*
 
-In the Q&A I also asked examples for how they approached building for user trust in their systems, something I know we are lacking in. They provided an example of using bystander reporting where they tell users who were in a session with a disruptive player that a report against that player was actioned upon, even if they were not the ones to report them, in order to build trust to all players that reporting does work, so they might do it the next time they encounter a toxic user.
+In the Q&A I also asked examples for how they approached building for user trust in their systems, something I know Meta is lacking in. They provided an example of using bystander reporting where they tell users who were in a session with a disruptive player that a report against that player was actioned upon, even if they were not the ones to report them, in order to build trust to all players that reporting does work, so they might do it the next time they encounter a toxic user.
 
 [Link to session](https://l.workplace.com/l.php?u=https%3A%2F%2Fschedule.gdconf.com%2Fsession%2Fa-practical-design-playbook-for-digital-thriving-in-games%2F890189&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
