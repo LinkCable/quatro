@@ -9,7 +9,7 @@ A few weeks ago I had the privilege of attending GDC to see industry talks and m
 
 Here are some of the highlights I saw during my time there and what I took away from them:
 
-## TOKYO GAME SHOW VR': Japanese Metaverse Market and Successful Game Promotion/Brand Marketing at First Ever Virtual Reality Game Show in History
+## TOKYO GAME SHOW VR: Japanese Metaverse Market and Successful Game Promotion/Brand Marketing at First Ever Virtual Reality Game Show in History
 
 Tokyo Game Show (TGS) is a major conference for game announcements from Japanese studios like Square Enix, Bandai Namco, Capcom, Konami, etc. The past two years they've built VR environments / metaverses for anyone not attending the conference to experience the new game announcements and environment of the expo virtually.
 
