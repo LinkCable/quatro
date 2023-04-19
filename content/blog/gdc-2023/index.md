@@ -7,7 +7,7 @@ A few weeks ago I had the privilege of attending GDC to see industry talks and m
 
 Here are some of the highlights I saw during my time there and what I took away from them:
 
-## TOKYO GAME SHOW VR: Japanese Metaverse Market and Successful Game Promotion/Brand Marketing at First Ever Virtual Reality Game Show in History
+### Tokyo Game Show VR
 
 Tokyo Game Show (TGS) is a major conference for game announcements from Japanese studios like Square Enix, Bandai Namco, Capcom, Konami, etc. The past two years they've built VR environments / metaverses for anyone not attending the conference to experience the new game announcements and environment of the expo virtually.
 
@@ -31,7 +31,7 @@ They'll be doing a 3rd iteration of the VR experience this September, so keep an
 
 [Link to the session](https://l.workplace.com/l.php?u=https%3A%2F%2Fschedule.gdconf.com%2Fsession%2Ftokyo-game-show-vr-japanese-metaverse-market-and-successful-game-promotionbrand-marketing-at-first-ever-virtual-reality-game-show-in-history-presented-by-dentsu-and-ambr%2F894480&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
-## A Practical Design Playbook for Digital Thriving in Games
+### A Practical Design Playbook for Digital Thriving in Games
 
 A talk by Blizzard and Riot researchers on how they encourage positive player experiences and game communities as well as practical design solutions to assess risk of different mechanics and how to handle bad actors, very relevant for Integrity teams especially within Horizon.
 
@@ -49,7 +49,7 @@ In the Q&A I also asked examples for how they approached building for user trust
 
 [Link to session](https://l.workplace.com/l.php?u=https%3A%2F%2Fschedule.gdconf.com%2Fsession%2Fa-practical-design-playbook-for-digital-thriving-in-games%2F890189&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
-## **Designing Through Dissonance: Confronting Feedback with an Open Mind**
+### **Designing Through Dissonance: Confronting Feedback with an Open Mind**
 
 This was a talk from Mark Stuart, a Design Director at Insomniac Games, on how to approach user feedback and four heuristics that designers tend to fall back on when they disagree with the feedback:
 
@@ -92,7 +92,7 @@ Mark mentioned that you should challenge yourself to create drastic solution for
 
 [Link to session](https://l.workplace.com/l.php?u=https%3A%2F%2Fschedule.gdconf.com%2Fsession%2Fdesigning-through-dissonance-confronting-feedback-with-an-open-mind%2F890382&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
-## How to Build a Home: Designing Narrative for Sindri's House in 'God of War Ragnarök'
+### How to Build a Home: Designing Narrative for Sindri's House in 'God of War Ragnarök'
 
 A fun talk from Harleigh Awner, a narrative designer at Santa Monica Studios, how they approached building a living home for the player in God of War. I was hoping this talk would focus on how they evolve the Home environment as the game progresses, but the talk was actually focused on how NPCs interact with each other without player input to build the illusion of a real world where not everything revolves around the main character.
 
@@ -100,7 +100,7 @@ There were some interesting snippets though, such as how they explored a Dynamic
 
 One other nice design touch I could see be useful for accessibility is how they approached subtitles, based on the distance from the NPCs the subtitles would disappear so you wouldn't be seeing text for conversations you could no longer hear, which sounds like a useful mechanism to user for things like live subtitles of conversations I could see us using in the future.
 
-## The Show Floor
+### The Show Floor
 
 Of course I also took the chance to walk around the show floor and chat with developers that I saw using Quests just to hear about their developer experience.
 
@@ -108,7 +108,7 @@ Of course I also took the chance to walk around the show floor and chat with dev
 
 *The Meta Booth on the floor*
 
-**PNI Company**
+##### **PNI Company**
 
 They are building an interesting VR chair accessory where you sit down and control your motion by sliding your feet to turn and pushing your feet to move forward or backward.
 
@@ -116,7 +116,7 @@ I don't know if I would call it more immersive per se, but it was an interesting
 
 [Youtube video of a demo](https://l.workplace.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DcSfq7FqSB94&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
-**3dar**
+##### **3dar**
 
 This company is building a multiplayer MR experience on Quest Pro! It's called eggscape and their current plan is to only demo at expos or IRL events as multiplayer AR apps sounded difficult to setup on just the user end as they need to have the guardians all matching for their case.
 
@@ -124,7 +124,7 @@ Overall it was exciting to see developers trying to unlock MR experiences (multi
 
 [3dar's website](https://l.workplace.com/l.php?u=https%3A%2F%2Fwww.3dar.com%2F&h=AT3KyqjUAfU3S2dOYONxB8mMj2vxlSFguHn83DhlNREhTCYHmAANY_uorR_2FZVHBDb1wrHe8GhpXLYSu1AsbVg2mYpRwFr5PwksIzscr7vPtdg43EXFxre8eIsIksImcMpj-JeVOpVcjnSKrCCwXw)
 
-**PSVR2**
+##### **PSVR2**
 
 I had to take a chance and evaluate the competition as well, and tried out an bespoke Eye Tracking demo their internal Magic Lab team has built, an prototyping lab in Sony. I chatted a bit with the employees and they discussed how they separated ET use cases as:
 
@@ -144,7 +144,7 @@ A user could then pick one of three more involved demos, I selected the input de
 
 I did wonder as I did the demos and such, since they were all set in real world examples (a bar, a party) if this some sort of hint of them thinking around AR use cases.
 
-## Conclusion
+### Conclusion
 
 Overall I found GDC a highly relevant conference to attend as a VR designer. Although the talks focus on games and game design, many lessons and takeaways can directly translate to the UX design practice of designing in multiplayer and 3D spaces. Game designers have been doing similar work for a long time and have a rich pool of knowledge and inspiration to draw from.
 
