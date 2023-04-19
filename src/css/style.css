@@ -751,6 +751,11 @@ a:focus {
   height: 100%;
 }
 
+/* Fix Netlify markdown editor */
+[data-slate-editor] { 
+    -webkit-user-modify: read-write !important; 
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
