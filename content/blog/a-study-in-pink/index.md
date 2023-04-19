@@ -1,9 +1,9 @@
 ---
 title: A Study in Pink
 date: 2023-01-24T05:17:34.620Z
-description: Some research from back in grad school exploring effective Dribbble
-  was for designers. A fun time capsule of when it was the place to go for
-  inspiration.
+description: Some research from back in grad school exploring how effective
+  Dribbble was for designers. A fun time capsule of when it was the place to go
+  for inspiration.
 ---
 ![Dribbble icon mocked as a detective](/images/uploads/blog/a-study-in-pink/dribbble.webp)
 
