@@ -85,12 +85,30 @@
   font-style: italic;
 }
 
-/* Panchang */
+/* Unbounded */
 @font-face {
-  font-family: 'Panchang';
-  src: url('/fonts/panchang/Panchang-Variable.woff2') format('woff2'),
-       url('/fonts/panchang/Panchang-Variable.woff') format('woff'),
-       url('/fonts/panchang/Panchang-Variable.ttf') format('ttf');
+  font-family: 'Unbounded';
+  src: url('/fonts/unbounded/Unbounded-Variable.woff2') format('woff2'),
+       url('/fonts/panchang/Unbounded-Variable.ttf') format('ttf');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Eiko */
+@font-face {
+  font-family: 'Eiko';
+  src: url('/fonts/unbounded/Unbounded-Variable.woff2') format('woff2'),
+       url('/fonts/panchang/Unbounded-Variable.ttf') format('ttf');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eiko';
+  src: url('/fonts/eiko/PPEiko-Variable.woff2') format('woff2'),
+       url('/fonts/eiko/PPEiko-Variable.ttf') format('ttf');
   font-weight: 200 700;
   font-display: swap;
   font-style: normal;
@@ -178,7 +196,7 @@
   --spacing-32: 8rem;
   --spacing-36: 9rem;
   --spacing-40: 10rem;
-  --fontFamily-sans: "Panchang", system-ui, -apple-system, BlinkMacSystemFont,
+  --fontFamily-sans: "Unbounded", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Sentient", "Georgia", Cambria, "Times New Roman",
@@ -187,6 +205,9 @@
   "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-monospace: "FT88", "Courier New", Courier, monospace;
+  --fontFamily-japanese: "Eiko", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
   --accent-heading: var(--fontFamily-accent);
@@ -220,14 +241,15 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
-  --color-header-shadow: #adbef2;
+  --color-glass-filter: rgba(116, 136, 195, 0.12);
+  --color-box-shader: rgba(0, 0, 0, 0.1);
 }
 
 /* HTML elements */
 
 *,
 :after,
-:before {
+:before { 
   box-sizing: border-box;
 }
 
@@ -252,10 +274,9 @@ html, body {
 }
 
 footer {
-  font-family: var(--fontFamily-monospace);
-  font-style: normal;
-  font-style: oblique;
-  font-weight: bold;
+  font-family: var(--fontFamily-japanese);
+  font-weight: 400;
+  font-style: italic;
   font-size: var(--fontSize-0);
   padding: var(--spacing-5);
   display: flex;
@@ -560,6 +581,11 @@ a:focus {
   font-family: var(--fontFamily-accent);
 }
 
+.blog-post ul {
+  list-style-position: outside;
+  margin-left: var(--spacing-4);
+} 
+
 .blog-post-nav {
   margin-top: var(--spacing-2);
   padding-bottom: var(--spacing-8);
@@ -621,19 +647,46 @@ a:focus {
   width: 100vw;
   height: 100vh;
   flex-flow: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: var(--spacing-4);
+  text-align: left;
+  padding: var(--spacing-32);
   position: absolute;
+}
+
+.statement.left {
+  align-items: flex-start;
+}
+
+
+.statement.right {
+  align-items: flex-end;
+}
+
+.statement .glass {
+  width: 100%;
+  max-width: var(--maxWidth-lg);
+  padding: var(--spacing-8);
+  background: var(--color-glass-filter);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border: 1px solid var(--color-glass-filter);
+
+  /*rgba(24, 170, 197, 0.12);*/
 }
 
 .statement h1, .statement p {
   max-width: var(--maxWidth-wrapper);
 }
 
-.statement h1 {
-  text-shadow: 2px 2px var(--color-header-shadow);
+.statement .glass h1 {
+  /*text-shadow: 2px 2px var(--color-header-shadow);*/
+  margin-bottom: var(--spacing-4);
+}
+
+.statement p {
+  margin-bottom: var(--spacing-2);
 }
 
 .vr {
@@ -751,11 +804,6 @@ a:focus {
   height: 100%;
 }
 
-/* Fix Netlify markdown editor */
-[data-slate-editor] { 
-    -webkit-user-modify: read-write !important; 
-}
-
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -785,4 +833,10 @@ a:focus {
     .fb {
       margin-top: var(--spacing-32);
     }
+}
+
+@media only screen and (max-width: 40rem) {
+  .statement {
+    padding: var(--spacing-12)
+  }
 }

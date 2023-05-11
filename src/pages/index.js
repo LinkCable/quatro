@@ -47,7 +47,7 @@ function Video(props) {
 
   return (
     <>
-        <mesh scale={[1, 1*aspectRatio, 0]} position={props.videoPosition} >
+        <mesh scale={[1.5, 1.5*aspectRatio, 0]} position={props.videoPosition} >
           <planeGeometry />
           <React.Suspense fallback={
             <meshBasicMaterial map={fallbackTexture} toneMapped={false} />
@@ -69,26 +69,27 @@ function Models(props) {
       <Model
         scale = {.6}
         modelFile="/3d/intro-anim.glb"
-        position = {[0,.55,0]}
+        position = {[1.2,-0.2,0]}
       />
       <Model
-        scale = {.35}
+        scale = {.5}
         modelFile="/3d/quest-pro.glb"
-        position = {[0,height*-0.9,0]}
+        position = {[-1.7,height*-1.05,0]}
+        rotation = {[0, 0, 0]}
       />
       <Video
-        videoPosition = {[0,height*-1.9,0]}
+        videoPosition = {[1.1,height*-2.05,0]}
         video={halloween}
       />
       <Model
-        scale = {.8}
+        scale = {1.1}
         modelFile="/3d/misc.glb"
-        position = {[0,height*-3,0]}
+        position = {[-1.3,height*-3.2,0]}
       />
        <Model
         scale = {.5}
         modelFile="/3d/thumbs-up.glb"
-        position = {[0,height*-3.9,0]}
+        position = {[1.3,height*-4,0]}
       />
     </>
   )
@@ -99,8 +100,12 @@ function LoadingState() {
 
   return (
     <div className="statement fallback">
-      <h1>I am a product designer</h1>
-      <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
+      <div className="glass">
+        <h1>I am a product designer</h1>
+        <p>Experienced in VR, privacy, search, and social.</p> 
+        <p>Particularly skilled with designing complex systems, working horizontally across product verticals, and prototyping.</p>
+        <p>Passionate about emerging technologies and social dynamics.</p>
+      </div>
     </div>
   )
 }
@@ -122,33 +127,45 @@ const Home = ({ data, location }) =>  {
               <Models/>
             </Scroll>
             <Scroll html>
-              <div className="statement intro" style={{top: "13vh"}}>
-                <h1>I am a product designer</h1>
-                <p>Experienced in VR, privacy, search, and social. Passionate about emerging technologies and social dynamics.</p>
+              <div className="statement intro" style={{top: "4vh"}}>
+                <div className="glass">
+                  <h1>I am a product designer</h1>
+                  <p>Experienced in VR, privacy, search, and social.</p> 
+                  <p>Particularly skilled with designing complex systems, working horizontally across product verticals, and prototyping.</p>
+                  <p>Passionate about emerging technologies and social dynamics.</p>
+                </div>
               </div>
-              <div className="statement vr" style={{top: "100vh"}}>
-                <h1>I currently work on privacy for the Meta Quest</h1>
-                <p>
-                  I work across the VR ecosystem and have launched <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
-                </p>
+              <div className="statement vr right" style={{top: "90vh"}}>
+                <div className="glass">
+                  <h1>I work on VR privacy to build user trust</h1>
+                  <p>
+                    Currently shipping privacy experiences for the Meta Quest (f.k.a. Oculus) ecosystem such as <a href="https://www.oculus.com/blog/meta-accounts/">new profile settings</a> and <a href="https://www.oculus.com/blog/meta-quest-pro-privacy/">privacy features</a> for the Quest Pro.
+                  </p>
+                </div>
               </div>
-              <div className="statement fb" style ={{top: "202vh"}}>
-                <h1>I used to work on Facebook</h1>
-                <p>
-                  I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>. I worked on discovery, consumption, and creation experiences.
-                </p>
+              <div className="statement fb left" style ={{top: "180vh"}}>
+                <div className="glass">
+                  <h1>I used to work on Facebook</h1>
+                  <p>
+                    I was a designer on Search, supporting <a href="https://about.fb.com/news/2018/12/facebook-watch-what-weve-built-whats-ahead/">Facebook Watch</a> and Hashtags, collaborating with <a href="https://www.facebook.com/community/whats-new/updating-admin-tools/">Facebook Groups</a>. I worked on discovery, consumption, and creation experiences.
+                  </p>
+                </div>
               </div>
-              <div className="statement others" style ={{top: "310vh"}}>
-                <h1>Sometimes I do other kinds of design</h1>
-                <p>
-                  Like making <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
-                </p>
+              <div className="statement right others" style ={{top: "300vh"}}>
+                <div className="glass">
+                  <h1>Sometimes I do other kinds of design</h1>
+                  <p>
+                    Like making <a href="https://www.veryokvinyl.com/products/the-song-of-saya-official-soundtrack?variant=41649689362622">vinyl obi strips</a>, <a href="https://github.com/tachiyomiorg/tachiyomi">manga apps</a>,  <a href="https://www.instagram.com/bootleggerphil/">cocktails</a>, and <a href="https://www.youtube.com/watch?v=awM5fZc8LSU">emoji</a>.
+                  </p>
+                </div>
               </div>
-              <div className="statement end" style ={{top: "410vh"}}>
+              <div className="statement end" style ={{top: "400vh"}}>
+                <div className="glass">
                 <h1>That's all for now</h1>
                 <p>
                   But feel free to <a href="mailto:hi@philkt.me">drop me a line</a> if you're interested in chatting.
                 </p>
+                </div>
               </div>
             </Scroll>
           </ScrollControls>
