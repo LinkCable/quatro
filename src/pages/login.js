@@ -45,7 +45,7 @@ const Login = ({ data, location }) => {
         <Model
           scale = {.6}
           modelFile="/3d/key.glb"
-          position = {[0,0.6,0]}
+          position = {[0,.5,0]}
         />
           
         <directionalLight

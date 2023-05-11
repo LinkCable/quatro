@@ -242,7 +242,9 @@
   --color-heading-black: black;
   --color-accent: #d1dce5;
   --color-glass-filter: rgba(116, 136, 195, 0.12);
+  --color-glass-white: rgba(248, 247, 247, 0.32);
   --color-box-shader: rgba(0, 0, 0, 0.1);
+  --color-box-shader-orange: rgba(237, 158, 62, 0.22);
 }
 
 /* HTML elements */
@@ -668,12 +670,10 @@ a:focus {
   padding: var(--spacing-8);
   background: var(--color-glass-filter);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--color-box-shader);
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);
   border: 1px solid var(--color-glass-filter);
-
-  /*rgba(24, 170, 197, 0.12);*/
 }
 
 .statement h1, .statement p {
@@ -681,7 +681,6 @@ a:focus {
 }
 
 .statement .glass h1 {
-  /*text-shadow: 2px 2px var(--color-header-shadow);*/
   margin-bottom: var(--spacing-4);
 }
 
@@ -729,15 +728,27 @@ a:focus {
   text-align: center;
 }
 
-.login .password-submit{
+.login .password-submit {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: var(--spacing-4) 0 0;
-    box-shadow: -3px 0 0 0 var(--color-heading),
-    3px 0 0 0 var(--color-heading),
-    0 -3px 0 0 var(--color-heading),
-    0 3px 0 0 var(--color-heading);
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-4) 0 0;
+  background: var(--color-glass-white);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px var(--color-box-shader);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border: 1px solid var(--color-glass-white);
+}
+
+.password-submit::after {
+  box-shadow: 0 4px 20px var(--color-box-shader-orange);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.password-submit:hover::after {
+  opacity: 1;
 }
 
 .login label {
@@ -746,9 +757,9 @@ a:focus {
 }
 
 .login input {
-  background: #f1f1f1;
+  background: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 16px;
   text-align: left;
   padding: var(--spacing-1) var(--spacing-2);
   height: 100%;
@@ -756,15 +767,20 @@ a:focus {
 
 .login input:focus { 
   outline: none;
+  box-shadow: 0 4px 15px var(--color-box-shader-orange);
 }
 
 .login form button {
-  background-color: var(--color-orange);
-  color: var(--color-text-light);
+  background: none;
+  color: var(--color-orange);
   padding: var(--spacing-2);
   border: none;
-  font-family: var(--fontFamily-monospace);
-  
+  font-family: var(--fontFamily-japanese);
+  font-weight: 500;
+  font-style: italic;
+  border-radius: 0 16px 16px 0;
+  position: absolute;
+  right: 0;
 }
 
 .login form button:hover{

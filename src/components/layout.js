@@ -66,7 +66,6 @@ const Layout = ({ location, title, children, className }) => {
       axios.post('https://graphql.anilist.co', {
           query
       }).then(function(response) {
-        console.log(response.data.data.Page.mediaList[0]);
         setFooter("Last manga read: " + response.data.data.Page.mediaList[0].media.title.userPreferred)
       }).catch(err => setFooter("Anilist API is broken :("));
       break;
