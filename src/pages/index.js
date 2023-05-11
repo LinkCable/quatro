@@ -69,7 +69,7 @@ function Models(props) {
       <Model
         scale = {.6}
         modelFile="/3d/intro-anim.glb"
-        position = {[1.2,-0.2,0]}
+        position = {[1.3,-0.2,0]}
       />
       <Model
         scale = {.5}
@@ -102,8 +102,8 @@ function LoadingState() {
     <div className="statement fallback">
       <div className="glass">
         <h1>I am a product designer</h1>
-        <p>Experienced in VR, privacy, search, and social.</p> 
-        <p>Particularly skilled with designing complex systems, working horizontally across product verticals, and prototyping.</p>
+        <p>I've designed for VR, privacy, search, and interests.</p> 
+        <p>Particularly skilled in simplifying complex systems, working horizontally across product verticals, and prototyping.</p>
         <p>Passionate about emerging technologies and social dynamics.</p>
       </div>
     </div>
@@ -130,8 +130,8 @@ const Home = ({ data, location }) =>  {
               <div className="statement intro" style={{top: "4vh"}}>
                 <div className="glass">
                   <h1>I am a product designer</h1>
-                  <p>Experienced in VR, privacy, search, and social.</p> 
-                  <p>Particularly skilled with designing complex systems, working horizontally across product verticals, and prototyping.</p>
+                  <p>I've designed for VR, privacy, search, and interests.</p> 
+                  <p>Particularly skilled in simplifying complex systems, working horizontally across product verticals, and prototyping.</p>
                   <p>Passionate about emerging technologies and social dynamics.</p>
                 </div>
               </div>

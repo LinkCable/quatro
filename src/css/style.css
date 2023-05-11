@@ -856,3 +856,11 @@ a:focus {
     padding: var(--spacing-12)
   }
 }
+
+
+@media only screen and (min-width: 90rem) {
+  .statement {
+    padding: var(--spacing-40)
+  }
+}
+
