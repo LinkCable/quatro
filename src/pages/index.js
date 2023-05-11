@@ -47,7 +47,7 @@ function Video(props) {
 
   return (
     <>
-        <mesh scale={[1, 1*aspectRatio, 0]} position={props.videoPosition} >
+        <mesh scale={[1.5, 1.5*aspectRatio, 0]} position={props.videoPosition} >
           <planeGeometry />
           <React.Suspense fallback={
             <meshBasicMaterial map={fallbackTexture} toneMapped={false} />
@@ -74,22 +74,22 @@ function Models(props) {
       <Model
         scale = {.5}
         modelFile="/3d/quest-pro.glb"
-        position = {[1.4,height*-1.05,0]}
-        rotation = {[-0.35, 0, 0.14]}
+        position = {[-1.7,height*-1.05,0]}
+        rotation = {[0, 0, 0]}
       />
       <Video
-        videoPosition = {[.7,height*-1.9,0]}
+        videoPosition = {[1.1,height*-2.05,0]}
         video={halloween}
       />
       <Model
-        scale = {.8}
+        scale = {1.1}
         modelFile="/3d/misc.glb"
-        position = {[1,height*-3,0]}
+        position = {[-1.3,height*-3.2,0]}
       />
        <Model
         scale = {.5}
         modelFile="/3d/thumbs-up.glb"
-        position = {[0,height*-3.9,0]}
+        position = {[1.3,height*-4,0]}
       />
     </>
   )
@@ -135,7 +135,7 @@ const Home = ({ data, location }) =>  {
                   <p>Passionate about emerging technologies and social dynamics.</p>
                 </div>
               </div>
-              <div className="statement vr" style={{top: "90vh"}}>
+              <div className="statement vr right" style={{top: "90vh"}}>
                 <div className="glass">
                   <h1>I work on VR privacy to build user trust</h1>
                   <p>
@@ -143,7 +143,7 @@ const Home = ({ data, location }) =>  {
                   </p>
                 </div>
               </div>
-              <div className="statement fb" style ={{top: "202vh"}}>
+              <div className="statement fb left" style ={{top: "180vh"}}>
                 <div className="glass">
                   <h1>I used to work on Facebook</h1>
                   <p>
@@ -151,7 +151,7 @@ const Home = ({ data, location }) =>  {
                   </p>
                 </div>
               </div>
-              <div className="statement others" style ={{top: "310vh"}}>
+              <div className="statement right others" style ={{top: "300vh"}}>
                 <div className="glass">
                   <h1>Sometimes I do other kinds of design</h1>
                   <p>
@@ -159,7 +159,7 @@ const Home = ({ data, location }) =>  {
                   </p>
                 </div>
               </div>
-              <div className="statement end" style ={{top: "410vh"}}>
+              <div className="statement end" style ={{top: "400vh"}}>
                 <div className="glass">
                 <h1>That's all for now</h1>
                 <p>

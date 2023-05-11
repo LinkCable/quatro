@@ -647,11 +647,19 @@ a:focus {
   width: 100vw;
   height: 100vh;
   flex-flow: column;
-  align-items: flex-start;
   justify-content: center;
   text-align: left;
   padding: var(--spacing-32);
   position: absolute;
+}
+
+.statement.left {
+  align-items: flex-start;
+}
+
+
+.statement.right {
+  align-items: flex-end;
 }
 
 .statement .glass {
