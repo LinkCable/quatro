@@ -74,7 +74,7 @@ function Models(props) {
       <Model
         scale = {.5}
         modelFile="/3d/quest-pro.glb"
-        position = {[-1.7,height*-1.05,0]}
+        position = {[-1.5,height*-1.05,0]}
         rotation = {[0, 0, 0]}
       />
       <Video
@@ -84,12 +84,12 @@ function Models(props) {
       <Model
         scale = {1.1}
         modelFile="/3d/misc.glb"
-        position = {[-1.3,height*-3.2,0]}
+        position = {[-1.3,height*-3.15,0]}
       />
        <Model
-        scale = {.5}
+        scale = {.65}
         modelFile="/3d/thumbs-up.glb"
-        position = {[1.3,height*-4,0]}
+        position = {[1,height*-3.95,0]}
       />
     </>
   )

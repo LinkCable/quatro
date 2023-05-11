@@ -196,6 +196,14 @@
   --spacing-32: 8rem;
   --spacing-36: 9rem;
   --spacing-40: 10rem;
+  --spacing-44: 11rem;
+  --spacing-48: 12rem;
+  --spacing-52: 13rem;
+  --spacing-56: 14rem;
+  --spacing-60: 15rem;
+  --spacing-64: 16rem;
+  --spacing-large: 28rem;
+  --spacing-extra-large: 38rem;
   --fontFamily-sans: "Unbounded", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -857,10 +865,29 @@ a:focus {
   }
 }
 
-
 @media only screen and (min-width: 90rem) {
   .statement {
     padding: var(--spacing-40)
   }
 }
+
+@media only screen and (min-width: 100rem) {
+  .statement {
+    padding: var(--spacing-64)
+  }
+}
+
+@media only screen and (min-width: 110rem) {
+  .statement {
+    padding: var(--spacing-large)
+  }
+}
+
+
+@media only screen and (min-width: 125rem) {
+  .statement {
+    padding: var(--spacing-extra-large);
+  }
+}
+
 
